@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>无序列表</h3>
+	<ul type="square"><!-- unordered list 无序列表--> <!-- type="square"是把小圆点改成方点 -->
+		<li>貂蝉</li><!-- list列表 item项 -->
+		<li>吕布</li>
+		<li>刘备</li>
+	</ul>
+	
+	<h3>有序列表</h3>
+	<!-- ↓ start:开始值  reversed反转(降序) -->
+	<ol type="1" start="5" reversed="reversed"><!-- order list 有序列表 --> <!-- type="a" 属性有1 a A I i--> 
+		<li>打开冰箱门</li>
+		<li>把大象装进去</li>
+		<li>关上冰箱门</li>
+	</ol>
+	
+	<h3>定义列表</h3>
+	<!-- 定义列表自带层级效果 -->
+	<dl>
+		<dt>凉菜</dt> <!-- definition term 定义列表组 -->
+			<dd>拍黄瓜</dd> <!-- definition description 定义描述 -->
+			<dd>芥末鸭掌</dd>
+			<dd>花毛一体</dd>
+		<dt>炒菜</dt>
+			<dd>宫保鸡丁</dd>
+			<dd>木须肉</dd>
+			<dd>水煮肉</dd>
+	</dl>
+	
+	<h3>列表嵌套</h3><!-- 有序列表和无序列表可以任意无限嵌套  -->
+	<ol>
+		<li>Java基础
+			<ul>
+				<li>变量</li>
+				<li>数据类型</li>
+				<li>运算符</li>
+				<li>流程控制
+					<ul>
+						<li>if</li>
+						<li>switch</li>
+						<li>while</li>
+						<li>for</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>Java面向对象</li>
+		<li>JavaAPI</li>
+	</ol>
+	
+	<h3>订单管理练习</h3>
+	<ul>
+		<li>我的订单
+			<ul>
+				<li>全部订单</li>
+				<li>待付款</li>
+				<li>待收货</li>
+				<li>待评价</li>
+				<li>退货退款</li>
+			</ul>
+		</li>
+		<li>我的优惠券</li>
+		<li>收货地址</li>
+		<li>账户管理</li>
+	</ul>
+	
+</body>
+</html>

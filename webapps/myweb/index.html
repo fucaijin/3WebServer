@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>达内开发文档服务器</title>
+	</head>
+	<body>
+		<center>
+			<!-- 
+			在页面上若有地方需要制定路径时注意,通常也要使用相对路径,而浏览器在解释相对路径时认为当前目录(即:"./")为请求当前页面时该页面所在的目录.
+			例如:
+			我们请求当前index页面时在浏览器地址栏输入的路径为:
+			http://localhost:8088/myweb/index.html
+			那么浏览器认为当前目录为:
+			http://localhost:8088/myweb/
+			所以下面的图片标签中指定图片资源路径src="./logo.png"
+			那么浏览器会认为图片的实际路径就是:
+			http://localhost:8088/myweb/logo.png
+			 -->
+			<img src="./baidu.png" style="width:300px;"><br>
+			<input type="text" size="32">
+			<input type="button" value="搜索" onclick="confirm('不给搜~')"><br>
+			<a href="reg.html">注册</a>
+			<a href="login.html">登录</a>
+			<a href="update.html">改密码</a>
+		</center>
+	</body>
+</html>

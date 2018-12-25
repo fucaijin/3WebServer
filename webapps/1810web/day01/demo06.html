@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- usemap=#..  #号代表在当前页面 -->
+	<img src="../imgs/a.jpg" usemap="#mymap">
+	<map name="mymap">
+		<!-- 范围  shape形状  rect矩形  coords坐标
+			矩形坐标四个值:两个对角线点的坐标
+			href:路径,路径所指向的资源浏览器能打开则直接浏览,浏览器打不开则下载此资源文件
+		-->
+ 		<area shape="rect" coords="0,0,100,100" href="http://www.baidu.com">
+		<area shape="rect" coords="0,0,100,100" href="demo01.zip"><!-- 直接下载图片 -->
+		<area shape="circle" coords="300,300,100" href="demo01.html">
+	</map>
+</body>
+</html>

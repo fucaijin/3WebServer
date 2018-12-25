@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- alt:如果图片不能正常显示时所显示的文本.此属性不是必须的,可以不写 -->
+<!-- src:图片路径
+			1.相对路径:访问站内资源使用相对路径
+				和页面在同一目录:直接写图片名
+				在页面的上级目录: ../(代表上移一层)  ../../(上上级)
+				在页面的下级目录: abc/
+			2.绝对路径:访问站外资源使用绝对路径
+				访问站外资源称为盗链,好处是不用占用自己网站的资源,坏处是目标网站路径发生改变则找不到图片
+			3.title:鼠标在图片上悬停时显示的文本	
+			width/height: 可以设置像素,或百分比(以上一级为基准的百分比)
+ -->
+<img alt="图片加载失败" src="abc/star_sky.png" title="鼠标悬停在图片上了..." width="50%">
+<img title="鼠标悬停在图片上了..." src="https://img-ads.csdn.net/2018/201812111201044213.png">
+<img src="../imgs/2.gif">
+</body>
+</html>

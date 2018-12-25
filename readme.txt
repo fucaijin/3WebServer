@@ -1,65 +1,65 @@
 ----------------------------------------------v1-----------------------------------------------
-���񣺽��տͻ��˵����󣬲���������Ϣ�������
+任务：接收客户端的请求，并将请求信息输出出来
 
-����
-HTTPЭ��--���ı�����Э��
-��Э��Ӧ����������������֮�䡣HTTPЭ����Ӧ�ò�Э�飬�涨�������������֮�䴫�����ݵķ�ʽ���Լ��������ݶ���ȹ���
-��HTTPЭ��Ҫ����뽨���ڿɿ��Ĵ���Э������ϣ�ͨ������ʹ�õĴ���Э��ΪTCPЭ�顣
+附：
+HTTP协议--超文本传输协议
+该协议应用在浏览器与服务器之间。HTTP协议是应用层协议，规定了浏览器与服务端之间传输数据的方式，以及数据内容定义等规则。
+而HTTP协议要求必须建立在可靠的传输协议基础上，通常我们使用的传输协议为TCP协议。
 
-HTTPЭ��涨�˿ͻ���(�����)�������֮��Ľ�������:Ҫ��ͻ��˷�������(Request)������˽������󲢴�����Ȼ����Ӧ(Response)��
-�����������������Ӧ�ͻ��ˡ�
+HTTP协议规定了客户端(浏览器)与服务器之间的交互规则:要求客户端发起请求(Request)，服务端接收请求并处理，然后响应(Response)。
+不允许服务端主动响应客户端。
 
-HTTPЭ��Ҫ����ʹ�õ��ַ���ΪISO8859-1�����ַ�����֧�������ַ������Զ��ڴ�������������Ҫ�ر���
-HTTPЭ������ά���ƶ�(w3c),��ϸ������Բο��������
+HTTP协议要求所使用的字符集为ISO8859-1，该字符集不支持中文字符，所以对于传输中文内容需要特别处理
+HTTP协议由万维网制定(w3c),详细更多可以参看其官网。
 
-URL:ͳһ��Դ��λ.������������������"��ַ"����һ��URL��
+URL:统一资源定位.我们在浏览器上输入的"网址"就是一个URL。
 
-URL�ĸ�ʽ��:
+URL的格式如:
 http://www.baidu.com/index.html
 http://localhost:8088/shop/login.html
 
-URL��Ϊ������
+URL分为三部分
 protocol://host/abs_path
-��:
-Ӧ��Э��://��������ַ��Ϣ/������Դ�ĳ���·��
-�μ�ͼ:url.png
+即:
+应用协议://服务器地址信息/请求资源的抽象路径
+参见图:url.png
 
-HTTP����:
-�����ǿͻ��˷��͸�����˵����ݡ�
-һ�������������ֹ���:
-�����У���Ϣͷ����Ϣ����
+HTTP请求:
+请求是客户端发送给服务端的内容。
+一个请求由三部分构成:
+请求行，消息头，消息正文
 
-1,������:
-��������һ���ַ�������CRLF��β
-ע:
-CR��LF��asc�����еĻس����뻻�з���
-CR:��Ӧ����ֵΪ13
-LF:��Ӧ����ֵΪ10
+1,请求行:
+请求行是一行字符串，以CRLF结尾
+注:
+CR，LF是asc编码中的回车符与换行符。
+CR:对应编码值为13
+LF:对应编码值为10
 
-�����������������,��ʽΪ:
+请求行由三部分组成,格式为:
 method url protocol(CRLF)
-����ʽ URL�еĳ���·�� ʹ�õ�Э��
+请求方式 URL中的抽象路径 使用的协议
 
-��:
+如:
 GET /index.html HTTP/1.1(CRLF)
 
-����ʽ������:
-GET:��ַ����ʽ����ͨ���û����ݵĲ����ᱻ�����ڳ���·����
-POST:������䣬�û����ݵ����ݻ��������Ϣ�����С�
+请求方式常见的:
+GET:地址栏方式请求，通常用户传递的参数会被包含在抽象路径中
+POST:打包传输，用户传递的数据会包含在消息正文中。
 
-2,��Ϣͷ:
-��Ϣͷ������������ɣ�ÿһ��Ϊһ���������Ϣͷ��Ϣ��
-��Ϣͷ�ǿͻ��˷��͸�����˵ĸ�����Ϣ������˵���ܶ���Ϣ��
-�����֪����˿ͻ���ʹ�õ��������Ϣ�������·��������
-��ʽ����Ϣ�������ݼ����ȵȵȡ�
-ÿһ���ַ���(һ����Ϣͷ����)����CRLF��β�����һ����Ϣͷ
-������ᵥ������һ��CRLF��ʾ��Ϣͷ���ֽ�����
+2,消息头:
+消息头是由若干行组成，每一行为一个具体的消息头信息。
+消息头是客户端发送给服务端的附加信息，用于说明很多信息，
+比如告知服务端客户端使用的浏览器信息，请求的路径，交互
+方式，消息正文内容及长度等等。
+每一行字符串(一个消息头内容)都以CRLF结尾。最后一个消息头
+结束后会单独发送一个CRLF表示消息头部分结束。
 
-��ʽ��:
+各式如:
 name: value(CRLF)
-��Ϣͷ����: ��Ӧ��ֵ(CRLF)
+消息头名字: 对应的值(CRLF)
 
-����:
+例如:
 Host: localhost:8088(CRLF)
 Connection: keep-alive(CRLF)
 Upgrade-Insecure-Requests: 1(CRLF)
@@ -68,18 +68,18 @@ Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/a
 Accept-Encoding: gzip, deflate, br(CRLF)
 Accept-Language: zh-CN,zh;q=0.9(CRLF)(CRLF)
 
-3,��Ϣ����
-��Ϣ������2��������(��һ�����ı�����)�����û����ݸ������
-�����ݡ�
-һ�������п��Բ�������Ϣ���ġ�
-�Ƿ�����Ϣ���Ŀ��Ը�����Ϣͷ���Ƿ����:
-Content-Type,Content-Length������ͷ���ж�������Ϣͷ��
-����������ͷ��Ϣ��������󲻺�����Ϣ���ġ�
-ע:
-Content-Type����˵����Ϣ���ĵ���������
-Content-Length����˵����Ϣ�����ܹ������ֽ�
+3,消息正文
+消息正文是2进制数据(不一定是文本数据)，是用户传递给服务端
+的内容。
+一个请求中可以不包含消息正文。
+是否含有消息正文可以根据消息头中是否存在:
+Content-Type,Content-Length这两个头来判定。若消息头不
+含有这两个头信息，则该请求不含有消息正文。
+注:
+Content-Type用来说明消息正文的数据类型
+Content-Length用来说明消息正文总共多少字节
 
-һ�������������������:
+一个完整的请求大致如下:
 GET /index.html HTTP/1.1(CRLF)
 Host: localhost:8088(CRLF)
 Connection: keep-alive(CRLF)
@@ -89,30 +89,30 @@ Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/a
 Accept-Encoding: gzip, deflate, br(CRLF)
 Accept-Language: zh-CN,zh;q=0.9(CRLF)(CRLF)
 
-��Ӧ
-��Ӧ�Ƿ���˷��͸��ͻ��˵�����
+响应
+响应是服务端发送给客户端的内容
 
-һ����Ӧ��������������:
-״̬�У���Ӧͷ����Ӧ����
+一个响应包含三部分内容:
+状态行，响应头，响应正文
 
-1��״̬��
-״̬����һ���ַ�������(CRLF��β)
+1，状态行
+状态行由一行字符串构成(CRLF结尾)
 
-��ʽ��
+格式：
 protocol statusCode statusReason(CRLF)
-Э��汾 ״̬���� ״̬����(CRLF)
+协议版本 状态代码 状态描述(CRLF)
 
-״̬������һ��3λ���֣��ͻ���ͨ����������ж��Լ�������
-�Ƿ񱻷������������Լ����������Ρ�
+状态代码是一个3位数字，客户端通过这个代码判断自己的请求
+是否被服务器处理，以及处理结果如何。
 
-״̬�����Ϊ5��:
-1xx:����
-2xx:�ɹ�����ʾ����˳ɹ������˸�����
-3xx:�ض���,�����ϣ���ͻ��˼�����������
-4xx:�ͻ��˴���,�ͻ��˵���������
-5xx:����˴���,����˴�������ʱ�����˴���
+状态代码分为5类:
+1xx:保留
+2xx:成功，表示服务端成功处理了该请求
+3xx:重定向,服务端希望客户端继续后续操作
+4xx:客户端错误,客户端的请求有误
+5xx:服务端错误,服务端处理请求时出现了错误
 
-����      ����
+代码      描述
 200    OK
 201    Created
 202    Accepted
@@ -129,19 +129,19 @@ protocol statusCode statusReason(CRLF)
 502    Bad Gateway
 503    Service Unavailable
 
-����:
+例如:
 HTTP/1.1 200 OK(CRLF)
 
-2,��Ӧͷ
-��Ӧͷ�ĸ�ʽ�������е���Ϣͷһ�����Ƿ���˷��͸��ͻ��˵�
-������Ϣ��
+2,响应头
+响应头的格式与请求中的消息头一样。是服务端发送给客户端的
+附加信息。
 
-3,��Ӧ����
-��Ӧ������2�������ݣ��Ƿ����ʵ����Ӧ���ͻ�������Ľ��
-һ����Ӧ��Ҳ���Բ�������Ӧ���ģ��ͻ���Ҳ��ͨ����Ӧͷ��
-�Ƿ����:Content-Type��Content-Length����ȡ�ġ�
+3,响应正文
+响应正文是2进制数据，是服务端实际响应给客户端请求的结果
+一个响应中也可以不包含响应正文，客户端也是通过响应头中
+是否包含:Content-Type与Content-Length来读取的。
 
-һ����Ӧ���ݴ�������:
+一个响应内容大致如下:
 HTTP/1.1 200 OK(CRLF)
 Content-Type: text/html(CRLF)
 Content-Length: 125(CRLF)(CRLF)
@@ -151,80 +151,80 @@ Content-Length: 125(CRLF)(CRLF)
 
 
 ----------------------------------------------v2-----------------------------------------------
-����HTTP����
-���ͻ������ӷ���˺�,�ᷢ��һ����׼��HTTP����,�Դ�������ClientHandler����Ҫ�����ǽ������������
+解析HTTP请求
+当客户端连接服务端后,会发送一个标准的HTTP请求,对此我们在ClientHandler中首要任务是将请求解析出来
 
-���һ����HttpRequest,ʹ�ø����ÿһ��ʵ������ͻ��˷��͹�����һ��ʵ����������.
-Ȼ��ClientHandler��run����ִ�п�ʼ��������ʱ��ʵ��һ��HttpRequest,�����ͻ��˷��͵��������.����ͨ����������󼴿ɻ�ȡ������Ҫ�������е������Ա㴦��
+设计一个类HttpRequest,使用该类的每一个实例保存客户端发送过来的一个实际请求内容.
+然后当ClientHandler的run方法执行开始处理请求时就实例一个HttpRequest,并将客户端发送的请求解析.将来通过该请求对象即可获取我们需要的请求中的内容以便处理
 
-ʵ��:
-1.�½�һ����:com.webserver.http ʹ����������������й�HTTPЭ�����
-2.��com.webserver.http�����½���:HttpRequest
+实现:
+1.新建一个包:com.webserver.http 使用这个包保存所有有关HTTP协议的类
+2.在com.webserver.http包中新建类:HttpRequest
 ==============================================v2===============================================
 
 
 
 ----------------------------------------------v3-----------------------------------------------
-����HTTP����
-��ɽ�����������Ϣͷ��������,��:parseHeaders����
-1.��HttpRequest������һ��Map���͵�����headers,���ڱ���һ�������е�������Ϣͷ��Ϣ,����keyΪ��Ϣͷ������,valueΪ��Ϣͷ��ֵ
-2.��parseHeaders�����н�������������Ϣͷ��ȡ�����н���,���ձ��浽headers���Map����������,��ɽ�������
+解析HTTP请求
+完成解析请求中消息头部分内容,即:parseHeaders方法
+1.在HttpRequest中添加一个Map类型的属性headers,用于保存一个请求中的所有消息头信息,其中key为消息头的名字,value为消息头的值
+2.在parseHeaders方法中将请求中所有消息头读取并进行解析,最终保存到headers这个Map类型属性中,完成解析工作
 ==============================================v3===============================================
 
 
 
 ----------------------------------------------v4-----------------------------------------------
-WebServer��һ��web�������������ͬʱ�������ɵ�����Ӧ�ã�ÿ������Ӧ�ÿ�������Ϊ����һ����վ����������(����ҳ��,ͼƬ,������Դ,����ҵ���java�������).
-Ϊ�˱��ڹ�����Щwebapp,��������Ŀ�½���һ��Ŀ¼,��������ЩӦ�õ�����
+WebServer是一个web容器，下面可以同时管理若干的网络应用，每个网络应用可以理解为就是一个网站的所有内容(包括页面,图片,其他资源,处理业务的java程序组成).
+为了便于管理这些webapp,我们在项目下建立一个目录,来保存这些应用的内容
 
-1.����ĿĿ¼���½�һ��Ŀ¼:webapps���ڱ������е�����Ӧ��webapp
-2.��webappsĿ¼���½�һ����Ŀ¼myweb,���ڴ������ǵ�һ������Ӧ�õ���Դ
-3.��mywebĿ¼���½���һ��ҳ��:index.html
-4.��ClientHandler��,���������,������������ȡ��������Դ�ĳ���·��(url),Ȼ����webapps��ͨ����Դ·��Ѱ�Ҷ�Ӧ����Դ�Ƿ���ڲ���׮������
-5.���ҵ���Դ��,���Ƿ���һ����׼��HTTP��Ӧ,������Դ��Ӧ���ͻ���,�ǵĿͻ�����������պ���������ʾ��ҳ��.
-	ע:��һ����Ҫ�˽�HTTPЭ�����Ӧ��ʽ,��������״̬��������Ӧͷ.(�ɲ����ĵ���http.txt�ļ�)
+1.在项目目录下新建一个目录:webapps用于保存所有的网络应用webapp
+2.在webapps目录下新建一个子目录myweb,用于创建我们第一个网络应用的资源
+3.在myweb目录下新建第一个页面:index.html
+4.在ClientHandler中,解析请求后,根据请求对象获取该请求资源的抽象路径(url),然后在webapps下通过资源路径寻找对应的资源是否存在并打桩输出结果
+5.但找到资源后,我们发送一个标准的HTTP响应,将该资源响应给客户端,是的客户端浏览器接收后能正常显示该页面.
+	注:这一步需要了解HTTP协议的响应格式,及常见的状态代码与响应头.(可参阅文档和http.txt文件)
 ==============================================v4===============================================
 
 
 
 ----------------------------------------------v5-----------------------------------------------
-��ClientHandler����Ӧ�ͻ��˵Ĺ������й��ܲ��.��������һ����:HttpResponse��ʾ��Ӧ����.
-ʹ������ÿһ��ʵ����ʾһ������˸��ͻ��˷��͵ľ�����Ӧ����.Ȼ������������ʵ�ʵķ��͹���
+将ClientHandler中响应客户端的工作进行功能拆分.单独定义一个类:HttpResponse表示响应对象.
+使用它的每一个实例表示一个服务端给客户端发送的具体响应内容.然后由这个类完成实际的发送工作
 
-1.��com.webserver.http�����½�һ����:HttpResponse
-2.��HttpResponse�ж��幹�췽�����ڳ�ʼ��
-3.�ٶ���һ������:flush(),���ڷ��͵�ǰ��Ӧ���ݸ��ͻ���.flush()��Ҫ����������͹���:����״̬��\������Ӧͷ\������Ӧ����
-4.��ClientHandler�з�����Ӧ�������ƶ���HttpResponse�ж�Ӧ�����������ClientHandler�Ĺ��ܲ��
+1.在com.webserver.http包中新建一个类:HttpResponse
+2.在HttpResponse中定义构造方法用于初始化
+3.再定义一个方法:flush(),用于发送当前响应内容给客户端.flush()中要完成三步发送工作:发送状态行\发送响应头\发送响应正文
+4.将ClientHandler中发送响应的内容移动到HttpResponse中对应功能中来完成ClientHandler的功能拆分
 ==============================================v5===============================================
 
 
 
 ----------------------------------------------v6-----------------------------------------------
-������Ӧ404ҳ��
-���ͻ����������Դ������ʱ,�����Ӧ����Ӧ״̬����404,��һ������ҳ����ͻ���
+添加响应404页面
+当客户端请求的资源不存在时,服务端应当响应状态代码404,及一个错误页面给客户端
 
-������Ҫ����һ�����õ�404ҳ��,��Ϊ���ۿͻ��˷��ʵ����ĸ�����Ӧ���е���Դʱ�����ܴ��ڸ���Դδ�ҵ������,�������Ӧ����Ӧ��ҳ����ͻ���
+我们需要制作一个公用的404页面,因为无论客户端访问的是哪个网络应用中的资源时都可能存在该资源未找到的情况,因此我们应当响应该页面给客户端
 
-1.��webappsĿ¼���½�һ��Ŀ¼:root
-2.��root���½�һ��ҳ��:404.html
-3.��HttpResponse����������״̬�е�����:״̬������״̬�������ṩ��Ӧ��get,set����
-4.��com.webserver.http�����½�һ����HttpContext���ڶ���HTTPЭ����ض�������
-5.��HttpContext������һ��Map�����ڱ���״̬�����������Ķ�Ӧ��ϵ�������ӳ�ʼ������
-6.��HttpContext�����ӷ���:getStatusReason���ڸ���״̬�����ȡ��Ӧ��״̬����
-7.��HttpResponse������״̬���뷽��:setStatusCode������״̬����ͬʱ������״̬����ȥHttpContext�л�ȡ��Ӧ��״̬��������������
-8.�޸�HttpResponse�ķ���״̬�з�������ԭ�еĹ̶����͸�Ϊ����״̬����������������ֵ����
-9.�޸�ClientHandler�ķ�֧������������û���ҵ�������Դʱ����HttpResponse��״̬����Ϊ404,ͬʱ����404ҳ�浽��Ӧ�����С����յ�û�����ҵ���Դʱ����Ӧ404ҳ�档            
+1.在webapps目录下新建一个目录:root
+2.在root下新建一个页面:404.html
+3.将HttpResponse中添加两个状态行的属性:状态代码与状态描述并提供对应的get,set方法
+4.在com.webserver.http包中新建一个类HttpContext用于定义HTTP协议相关定义内容
+5.在HttpContext中添加一个Map，用于保存状态代码与描述的对应关系，并添加初始化操作
+6.在HttpContext中添加方法:getStatusReason用于根据状态代码获取对应的状态描述
+7.在HttpResponse的设置状态代码方法:setStatusCode中设置状态代码同时，根据状态代码去HttpContext中获取对应的状态描述并进行设置
+8.修改HttpResponse的发送状态行方法，将原有的固定发送改为根据状态代码与描述的属性值发送
+9.修改ClientHandler的分支，当根据请求没有找到具体资源时设置HttpResponse的状态代码为404,同时设置404页面到响应正文中。最终当没有在找到资源时会响应404页面。            
 ==============================================v6===============================================
 
 
 
 ----------------------------------------------v7-----------------------------------------------
-����Ӧ�����з�����Ӧͷ�Ĳ��������ع�,Ҫ���̶��ķ���������Ӧͷ:Content-Type��Content-Length��Ϊ���Ը������������Ҫ��Ӧ����Ӧͷ��Ϣ.
-����Content-Type��ֵҲҪ����ʵ����Ӧ���������ݵ����͸��Զ�Ӧ��ֵ,���������Ƿ���"test/html"
+将响应对象中发送响应头的操作进行重构,要将固定的发送两个响应头:Content-Type和Content-Length改为可以根据情况设置需要响应的响应头信息.
+并且Content-Type的值也要根据实际响应的正文数据的类型给对对应的值,而不能总是发送"test/html"
 
-ע:
-Content-Type��Ӧͷ�������Ǹ�֪���ĵ���������.W3C��֯��������֪�������Ͷ��������Ӧ��ֵ,Tomcat���Ѿ������������˳���,��1000���.
-��������:
+注:
+Content-Type响应头的作用是告知正文的数据类型.W3C组织对现有已知数据类型都定义类对应的值,Tomcat中已经将它们整理了出来,共1000多个.
+常见的有:
 png			image/png
 jpg			image/jpeg
 gif			image/gif
@@ -232,146 +232,146 @@ html		text/html
 css			text/css
 js			application/javascript
 
-ʵ��:
-1.����������Ϣͷ�����һ��,��������Ӧ������Ҳ����һ������ΪMap��headers.����keyΪ��Ӧͷ������,valueΪ��Ӧֵ.
-	Ȼ�����ǸĶ�sendHeader����,��ԭ�еĹ̶�����������Ӧͷ��Ϊ����headers,�����а�����������Ӧͷ����.
-2.����Ӧ������Ϊ��Ӧͷ����headers����get,set����
-3.����һ����Ӧ������Ӧ���ľ�һ���������Ӧͷ:Content-Type��Content-length,����������Ҳ�������������ͷ.�Դ����ǾͿ�����������Ӧ����ʵ���ļ��ķ���:
-	setEntity�����Ӷ�������ͷ�����ò���.�������ǾͲ�����HttpResponse������������ʱÿ�ζ�Ҫ�ٵ�������putHeader��������������ͷ��.
-4.�����ļ��ĺ�׺����Content-Type��һһ��Ӧ��,����ֵ�ǹ̶���,������ǿ�����HttpContext�����ٶ���һ��Map,���ڱ�������֮��Ķ�Ӧ��ϵ.
-	����Map��ʼ��,Ȼ���ṩ�����ļ���׺����ȡ��Ӧ��Content-Type��ֵ,�������ǻ�ȡ
+实现:
+1.与请求中消息头的设计一致,我们在响应对象中也设置一个属性为Map的headers.其中key为响应头的名字,value为对应值.
+	然后我们改动sendHeader方法,将原有的固定发送两个响应头改为遍历headers,将其中包含的所有响应头发送.
+2.在响应对象中为响应头属性headers添加get,set方法
+3.由于一个响应包含响应正文就一定会包含响应头:Content-Type和Content-length,不包含正文也不会包含这两个头.对此我们就可以再设置响应正文实体文件的方法:
+	setEntity中添加对这两个头的设置操作.这样我们就不必在HttpResponse外面设置正文时每次都要再单独调用putHeader方法设置这两个头了.
+4.由于文件的后缀名与Content-Type是一一对应的,并且值是固定的,因此我们可以再HttpContext类中再定义一个Map,用于保存它们之间的对应关系.
+	并将Map初始化,然后提供根据文件后缀名获取对应的Content-Type的值,方便我们获取
 ==============================================v7===============================================
 
 
 
 ----------------------------------------------v8-----------------------------------------------
-�ع�HttpContext�г�ʼ������initMimeMapping.
-��ԭ�еĹ̶����6��MIME���͵�MIME_MAPPING�еĲ�����Ϊͨ������TOMCAT�ṩ��web.xml�ļ������г�ʼ��.
+重构HttpContext中初始化方法initMimeMapping.
+将原有的固定存放6个MIME类型到MIME_MAPPING中的操作改为通过解析TOMCAT提供的web.xml文件来进行初始化.
 
-1.��TOMCAT��װĿ¼�µ�confĿ¼�е�web.xml�ļ�������������ĿĿ¼��confĿ¼��
-2.����Ŀ��ͨ��maven����dom4j��jar��
-3.�޸�HttpContext����initMimeMapping����
+1.将TOMCAT安装目录下的conf目录中的web.xml文件拷贝到我们项目目录下conf目录中
+2.在项目中通过maven导入dom4j的jar包
+3.修改HttpContext类中initMimeMapping方法
 ==============================================v8===============================================
 
 
 
 ----------------------------------------------v9-----------------------------------------------
-�Ӵ˰汾��ʼ,ʵ�ַ���˿��Դ���ҵ�����,
-����ʵ���û�ע�Ṧ��
+从此版本开始,实现服务端可以处理业务操作,
+首先实现用户注册功能
 
-ע������:
-1.�û�����ע��ҳ��
-2.��ע��ҳ��������ע����Ϣ
-3.���ҳ��ע�ᰴť�ύע����Ϣ
-4.����˽��ղ���������ʱ,Ҫ�����û��ύ������
-5.������������û�����е�ҵ�����
-6.������ҵ�����
-7.��Ӧҵ�����
+注册流程:
+1.用户访问注册页面
+2.在注册页面上输入注册信息
+3.点击页面注册按钮提交注册信息
+4.服务端接收并解析请求时,要解析用户提交的数据
+5.根据请求分析用户想进行的业务操作
+6.处理该业务操作
+7.响应业务操作
 
-ʵ��:
-1.��webapps/myweb/�½�һ��ע��ҳ��:reg.html(ע��ҳ���form�������ύ��ַΪactionָ��·��Ϊ"reg")
-2.��������ʱ,����Ҫע��:
-	����ҳ��form������GET��ʽ�ύ�û��������Ϣʱ,���ݻᱻƴ�ӵ�URL��ַ��,��"?"�ָ�,�������.
-	���,�����ڽ��������е����������URL����ʱ,��URL���ܺ��в���,��Ϊ����Ҫ�Բ������е�������,
-	URL��ʽ���������:
-	����������:/myweb/index.html
-	��������:/myweb.reg?username=xxx&password=xxx&...
-  2.1.��HttpRequest�����ٶ�����������
-	  String requestURI:����URL�е����󲿷�("?"��ߵ�����)
-	  String queryString:����URL�еĲ�������("?"�ұߵ�����)
-	  Map parameters:����ÿһ�����key:������ value:����ֵ
-  2.2.��HttpRequest��������һ������:parseURL
-  	    �÷����������Ƕ��������е�url���ֽ��н�һ����������.�������ڽ��������еķ���parseRequestLine���������,
-  	    ��������������Խ���������url���н�������.
-  	    ����˼·:
-  	    ����url�����������:�в������޲���,��Ϊ�����ڽ���urlʱҪ���ж��Ƿ��в���,���Ƿ��в����ı�־��url����û��"?".
-  	    ����,��˵����url�Ǻ��в�����.��û��,�����ֱ�ӽ�url��ֵ���Ƹ�����requestURI.
-  	    ���в���,����������Ҫ����"?"��url���Ϊ������,��һ����Ϊ���󲿷�,��ֵ��requestURI,�ڶ�����Ϊ��������,���丳ֵ��queryString.
-  	    Ȼ���ٶ�queryString��һ����ֳ�ÿ������:
-  	    ���Ȱ���"&"��ֳ�ÿһ������,��ÿһ�������ٰ���"="���Ϊ������,�ֱ��ǲ����������ֵ,���ǽ����Ƿֱ���key,value���뵽parameters����.
-  2.3.Ϊ�����ӵ�������������get()����,�Ա������Ի�ȡ
-3.��ClientHandler��������Ļ�����,����һ���µķ�֧
-	�����������ж��Ƿ�Ϊ����һ��ҵ��,����,����ö�Ӧ��ҵ��������ɸ�ҵ�����
-	��������ִ��ԭ�в���,�ж������Ƿ�����webapps�¶�ӦĿ¼��һ����̬��Դ����Ӧ	    
-4.�������ڴ���ע��ҵ�����
-	��com.webserver���½�һ����:servlet,���ڸð�������һ����:Regservlet,���ڴ���ע��ҵ��.
-5.��TegServlet�ж��巽��:service,����ʵ��ҵ��������.
-6.��ClientHandler�������󲿷ֵķ�֧�ж�������������Ϊע��ҵ��,��ʵ����һ��RegServlet��������service�������д���
+实现:
+1.在webapps/myweb/新建一个注册页面:reg.html(注册页面的form表单的提交地址为action指定路径为"reg")
+2.解析请求时,我们要注意:
+	由于页面form表单以GET形式提交用户输入的信息时,内容会被拼接到URL地址中,以"?"分割,放在其后.
+	因此,我们在解析请求中的请求行里的URL部分时,该URL可能含有参数,因为我们要对参数进行单独解析,
+	URL形式有下列情况:
+	不带参数的:/myweb/index.html
+	带参数的:/myweb.reg?username=xxx&password=xxx&...
+  2.1.在HttpRequest类中再定义三个属性
+	  String requestURI:保存URL中的请求部分("?"左边的内容)
+	  String queryString:保存URL中的参数部分("?"右边的内容)
+	  Map parameters:保存每一组参数key:参数名 value:参数值
+  2.2.在HttpRequest类中添加一个方法:parseURL
+  	    该方法的作用是对请求行中的url部分进行进一步解析工作.当我们在解析请求行的方法parseRequestLine方法的最后,
+  	    调用这个方法来对解析出来的url进行解析操作.
+  	    解析思路:
+  	    由于url存在两种情况:有参数或无参数,因为我们在解析url时要想判断是否有参数,而是否含有参数的标志是url中有没有"?".
+  	    若有,则说明该url是含有参数的.若没有,则可以直接将url的值复制给属性requestURI.
+  	    若有参数,我们首先需要按照"?"将url拆分为两部分,第一部分为请求部分,赋值给requestURI,第二部分为参数部分,将其赋值给queryString.
+  	    然后再对queryString进一步拆分出每个参数:
+  	    首先按照"&"拆分出每一个参数,而每一个参数再按照"="拆分为两部分,分别是参数名与参数值,我们将它们分别以key,value存入到parameters即可.
+  2.3.为新添加的三个属性添加get()方法,以便外界可以获取
+3.在ClientHandler处理请求的环节中,添加一个新的分支
+	根据请求先判断是否为请求一个业务,若是,则调用对应的业务处理类完成该业务操作
+	若不是则执行原有操作,判断请求是否请求webapps下对应目录的一个静态资源并相应	    
+4.添加用于处理注册业务的类
+	在com.webserver下新建一个包:servlet,并在该包中添加一个类:Regservlet,用于处理注册业务.
+5.在TegServlet中定义方法:service,用于实际业务处理操作.
+6.在ClientHandler处理请求部分的分支判断中若发现请求为注册业务,则实例化一个RegServlet并调用其service方法进行处理
 
 ==============================================v9===============================================
 
 
 
 ----------------------------------------------v10-----------------------------------------------
-��ɵ�¼����
+完成登录功能
 
-׼��:
-׼��3��ҳ��:
-login.html,��¼ҳ��,��ҳ����Ҫ���û������û���������,�������¼��ť���ύ����.�����ύ·��action="login"
+准备:
+准备3个页面:
+login.html,登录页面,该页面中要求用户输入用户名与密码,当点击登录按钮后提交表单.表单提交路径action="login"
 
-login_success.html:��¼�ɹ���ʾҳ��
-login_fail.html:��¼ʧ����ʾҳ��
+login_success.html:登录成功提示页面
+login_fail.html:登录失败提示页面
 
-��servlet�����½�һ���û�������¼ҵ�����:LoginServlet������service����(�����Ķ�����RegServletһ��)
+在servlet包中新建一个用户处理登录业务的类:LoginServlet并定义service方法(方法的定义与RegServlet一致)
 
-��ClientHandler������һ���µķ�֧,��ͨ������·���ж��Ƿ�Ϊע��ҵ���,����ͨ���������ж��Ƿ�Ϊ��¼ҵ��,�����,��ʵ����LoginServlet����
-����service����������¼
-������ԭ�к����߼�,�ж��Ƿ�Ϊ����̬��Դ��.
+在ClientHandler中添加一个新的分支,在通过请求路径判断是否为注册业务后,继续通过该请求判断是否为登录业务,如果是,则实例化LoginServlet并调
+用其service方法处理登录
+否则走原有后续逻辑,判断是否为请求静态资源等.
 
-���LoginServlet��service�����߼�
-1.����ͨ��request��ȡ�û��ĵ�¼��Ϣ(�û���,����)
-2.ʹ��RandomAccessFile��ȡuser.dat�ļ���ÿ����¼,���ȶ��û��������Ƿ��������¼����һ��,һ��������response��Ӧ��¼�ɹ�ҳ��.
-����һ����ƥ����һ����¼,ֱ���ļ������м�¼����ȡ���.����ȡ�����û�и��û�,����ֻ�û���������ȷ,���벻��ȷ,����Ӧ�û���¼ʧ��ҳ��
+完成LoginServlet的service方法逻辑
+1.首先通过request获取用户的登录信息(用户名,密码)
+2.使用RandomAccessFile读取user.dat文件中每条记录,并比对用户名密码是否与该条记录输入一致,一致则设置response响应登录成功页面.
+若不一致则匹配下一条记录,直到文件中所有记录都读取完毕.若读取完毕仍没有该用户,或者只用户名输入正确,密码不正确,则都响应用户登录失败页面
 ==============================================v10===============================================
 
 
 
 ----------------------------------------------v11-----------------------------------------------
-�������������
+解决空请求问题
 
-HTTPЭ������˵��һ�����,�����ͻ��˷��Ϳ�����.
-��:�ͻ��˷���TCP���Ӻ�,û�з���HTTP��������,����ֱ�������˶Ͽ�����
+HTTP协议中有说明一种情况,允许客户端发送空请求.
+即:客户端发起TCP连接后,没有发送HTTP请求内容,而后直接与服务端断开连接
 
-��ClientHandler�ڴ���HttpRequestʱ,�ù��췽���е��ý���������������û�ж�ȡ���κ�����ʱ,Ӧ���׳�һ���������쳣�������׸�ClientHandler,
-��ClientHandler���񵽿������쳣��,���ٶԸ��������κ���Ӧ,ֱ�ӹرձ������Ӽ���
+当ClientHandler在创建HttpRequest时,该构造方法中调用解析请求行若发现没有读取到任何数据时,应当抛出一个空请求异常并最终抛给ClientHandler,
+当ClientHandler捕获到空请求异常后,则不再对该请求做任何响应,直接关闭本次连接即可
 
-��com.webserver.http���ж���һ���쳣:
-EmptyRequestException,��:�������쳣
+在com.webserver.http包中定义一个异常:
+EmptyRequestException,即:空请求异常
 
-��HttpRequest���������еķ���parseRequestLine�ж�ȡ���˿��������ʱ�����쳣,���쳣�����׸��˵��ý��������з�����HttpRequest���췽��,���췽��
-���յ����쳣����������׳���ClientHandler
+当HttpRequest解析请求行的方法parseRequestLine中读取到了空请求情况时即抛异常,该异常首先抛给了调用解析请求行方法的HttpRequest构造方法,构造方法
+接收到该异常后继续对外抛出给ClientHandler
 
-ClientHandler��ʵ����HttpRequestʱ�������˿������쳣,�������������д�������,ֱ����ͻ��˶Ͽ����Ӽ���.
+ClientHandler在实例化HttpRequest时若捕获到了空请求异常,则跳过后续所有处理动作,直接与客户端断开连接即可.
 ==============================================v11===============================================
 
 ----------------------------------------------v12-----------------------------------------------
-����:
-���ڵ�WebServer�Ѿ����Դ���ҵ��,������ÿ��������ҵ��ʱ,����Ҫ���Ӵ���ҵ���Servlet��֮��,��Ҫÿ���޸�ClientHandlerȥ����һ���µķ�֧,����Ӧ��������Servlet��ϵ��һ��.
+问题:
+现在的WebServer已经可以处理业务,但还是每次添加新业务时,除了要添加处理业务的Servlet类之外,还要每次修改ClientHandler去添加一个新的分支,将对应的请求与Servlet联系在一起.
 
-���������:
-����������ҵ��,����ֻ��Ҫ����Servlet�༴��.���������Servlet�Ķ�Ӧ��ϵ����ͨ�������ļ�����,������ÿ���޸�ClientHandler
+解决的问题:
+将来添加新业务,我们只需要添加Servlet类即可.而请求与该Servlet的对应关系我们通过配置文件进行,而不是每次修改ClientHandler
 
-1.�����׼
-	ClientHandler�������ݲ�ͬ�������ҵ���Ӧ��Servlet��Ҫ������service��������ҵ��,���Ҫ��ÿ��Servlet�����뺬�и÷���,
-	��ʱ���ǿ��Զ���һ����������Ϊ����,���ڸ����ض�����󷽷�service.��Ҫ������Servlet���̳и���.ͬʱ���Խ�Servlet�й��е�ĳЩ�߼�(������Ӧҳ��)��������,
-	��������ÿ��Servlet��д����߼�.
-	��com.webserver.servlet���ж��������:HttpServlet,�޸�ԭ�е�Servlet���̳���HttpServlet
+1.定义标准
+	ClientHandler将来根据不同的请求找到对应的Servlet后要调用其service方法处理业务,这就要求每个Servlet都必须含有该方法,
+	这时我们可以定义一个抽象类作为基类,并在该类重定义抽象方法service.并要求所有Servlet都继承该类.同时可以将Servlet中共有的某些逻辑(比如响应页面)放在这里,
+	这样无需每个Servlet都写这段逻辑.
+	在com.webserver.servlet包中定义抽象类:HttpServlet,修改原有的Servlet都继承于HttpServlet
 	
-2.��com.webserver.core�����½�һ����:ServerContext
-	���ڶ���������ʹ�õ�һЩ������Ϣ:
-	2.1����һ��Map:SERVLET_MAPPING,���ڱ����������Ӧ��ҵ�����������
-	2.2�����ʼ������,���ھ�̬���г�ʼ��SERVLET_MAPPING
-	2.3����һ�����������ȡ��ӦServlet���ֵķ���getServletName()
+2.在com.webserver.core包中新建一个类:ServerContext
+	用于定义服务端所使用的一些配置信息:
+	2.1定义一个Map:SERVLET_MAPPING,用于保存请求与对应的业务处理类的类名
+	2.2定义初始化方法,并在静态块中初始化SERVLET_MAPPING
+	2.3定义一个根据请求获取对应Servlet名字的方法getServletName()
 	
-3.�޸�ClientHandler,��ԭ�еĴ��������������ж�ע��͵�¼ҵ��ķ�֧ɾ��,��Ϊ���������ȡ��ӦServlet����,
-	Ȼ�����÷�����Ƽ��ز�ʵ������ӦServlet,Ȼ�������service��������ҵ��
+3.修改ClientHandler,将原有的处理请求中两个判断注册和登录业务的分支删除,改为根据请求获取对应Servlet名字,
+	然后利用反射机制加载并实例化对应Servlet,然后调用其service方法处理业务
 ==============================================v12===============================================
 
 
 
 
 ----------------------------------------------v13-----------------------------------------------
-��WebServerʹ���̳߳ع���������ͻ��˵Ľ����߳�
+在WebServer使用线程池管理处理与客户端的交互线程
 ==============================================v13===============================================
 
 
@@ -379,53 +379,123 @@ ClientHandler��ʵ����HttpRequestʱ�������˿������쳣,�������������д�������,ֱ
 
 
 ----------------------------------------------v15-----------------------------------------------
-�����ַ��������������
+解决地址栏传递中文问题
 
-HTTPЭ��Ҫ��ֻ��ʹ��ISO8859�ַ���,����ŷ�޵��ַ���,�����ǲ�֧�����ĵ�.��Ϊ��ַ�����ݵĲ����������������е�url��,���������ǲ��ܰ��������ַ���.
-����������������ύ��������ʱ,���Ȼ��Ƚ������ַ�����UTF-8����ת��Ϊ�����ֽ�,Ȼ��ÿ���ֽڵ�8λ�����ƶ���%XX(XX��ʾ������λ16����)��ʽ��ʾ,Ȼ���ύ�������.
-��ô����˽��յ��Ժ�Ҫ����Щ%XX������ת��Ϊ��Ӧ���ֽں��ٰ���UTF-8���뻹ԭ.%XX���������ֻ�����ֺ���ĸ,����ISO8859�Ǻ��е�.
+HTTP协议要求只能使用ISO8859字符集,这是欧洲的字符集,里面是不支持中文的.因为地址栏传递的参数会体现在请求行的url中,所以这里是不能包含中文字符的.
+浏览器发现我们在提交中文数据时,首先会先将中文字符按照UTF-8编码转换为若干字节,然后每个字节的8位二进制都以%XX(XX表示的是两位16进制)形式表示,然后提交给服务端.
+那么服务端接收到以后要将这些%XX的内容转换为对应的字节后再按照UTF-8编码还原.%XX这里的内容只有数字和字母,所以ISO8859是含有的.
 
-�����ʼǿ���ʦ�ϴ��ıʼ�
+例如请求行:GET /reg?username=xxxx&password=xxxx HTTP/1.1
 
-ʵ��:
-1.�޸�HttpRequest��,����һ���������ڽ����������ַ����е����е�"%XX"��ԭΪԭ�ַ�������
-2.�ڽ�һ������URLʱ,��ȡ���������ֺ�,���÷�������ת��.
+一个中文字符在UTF-8占3字节，在GBK中占2字节。
+11100000 10110011 10111110
+
+十进制              二进制               十六进制
+0           0000          0
+1           0001          1
+2           0010          2
+3           0011          3
+4           0100          4
+5           0101		  5
+6           0110		  6
+7           0111		  7
+8           1000		  8
+9           1001		  9
+10          1010		  a
+11          1011          b
+12          1100          c
+13          1101          d
+14          1110          e
+15          1111          f
+
+11111111  8位2进制为1字节
+ff         2位16进制为1字节
+
+username=范传奇
+url:/myweb/login?username=%E8%8C%83%E4%BC%A0%E5%A5%87&password=123456
+
+地址栏传递中文的步骤:
+1:浏览器中输入框输入了中文:"范"
+2:以GET请求形式提交表单时，浏览器发现含有中文，于是，将中文"范"按UTF-8编码转换的字节对应byte类型整数为:
+	一个负数二进制是它正数-1的二进制的补码，例如：-24的二进制位24-1=23的二进制(‭0001 0111‬)的反码(1110 1000‬)
+	-24, -116, -125
+	
+	2进制形式为:
+	11101000, 10001100,10000011
+3:浏览器会将这三个字节以16进制形式表示，并且每个字节前面以%开始，于是转换出了下面内容:%E8%8C%83
+4:将%E8%8C%83拼接到URL对应的参数值位置
+
+于是出现了类似下面的请求形式:
+/myweb/login?username=%E8%8C%83%E4%BC%A0%E5%A5%87&password=123456
+
+服务端在接受到该字符串后，进行逆向操作，还原其表示的字符串。
+JAVA提供了对应的API:URLDecoder
+
+-24  11101000  E8
+-116 10001100  8C
+-125 10000011  83
+
+实现:
+1:修改HttpRequest类，添加一个方法用于将参数部分字符串中所有的"%XX"还原为原字符串内容
+    
+2:在进一步解析URL时，截取出参数部分后，调用方法进行转码    
+
+将下述内容:
+username=%E8%8C%83%E4%BC%A0%E5%A5%87&password=123456
+
+转码为:
+username=范传奇&password=123456
+
+实现:
+1.修改HttpRequest类,添加一个方法用于将参数部分字符串中的所有的"%XX"还原为原字符串内容
+2.在进一步解析URL时,截取出参数部分后,调用方法进行转码.
 ==============================================v15===============================================
 
 
 
 ----------------------------------------------v16-----------------------------------------------
+使服务端支持接收POST请求
 
+POST请求是一种打包上传的方式，用户提交的数据会被包含在消息正文中。通常用户上传附件，或者提交的输入信息包含隐私信息时，我们都应当使用post形式提交。
 
-����ʦ�ϴ��ıʼ�
+当我们页面表单以POST形式提交用户数据时，该请求会包含两个消息头:Content-Type与Content-Length
+其中，Content-Type的值为:application/x-www-form-urlencoded那么服务端在解析请求时我们就应当对消息正文进行解析了。
 
+实现:
+对HttpRequest修改，使其支持解析消息正文中的form表单数据
+
+1:修改原有页面(注册，登录)中form表单的提交形式为:post
+
+2:修改HttpRequest中的parseContent方法
+	首先判断消息头中是否含有:Content-Length，若含有说明该消息是包含消息正文的。然后按照其指定的长度读取对应的字节。
+	再根据Content-Type判断该数据内容，并进行对应解析。这里我们只判断form表单的，后续其他将来可扩展。
 ==============================================v16===============================================
 
 
 
 ----------------------------------------------v17-----------------------------------------------
-����޸��û�����Ĳ���
+完成修改用户密码的操作
 
-�����û������޸�����ҳ�棺update.html
-Ȼ���ٸ�ҳ��������Ҫ�޸�������û�����ԭ��������������Ȼ�����޸İ�ť�����޸ġ�
-���޸ĳɹ�����ʾ�޸ĳɹ���ʾҳ�棬���û�����ԭ����������������ʾ�û�����ԭ����������ʾҳ��
+首先用户请求修改密码页面：update.html
+然后再该页面中输入要修改密码的用户名及原密码和新密码三项，然后点击修改按钮进行修改。
+若修改成功则显示修改成功提示页面，若用户名或原密码输入有误，则提示用户名或原密码错误的提示页面
 
-ʵ�֣�
-1.׼��ҳ�棬��webapps/mywebĿ¼���ṩ����ҳ�棺
+实现：
+1.准备页面，在webapps/myweb目录下提供三个页面：
 
-	update.html:�޸�ҳ��
-	��ҳ����form�����ύ�����·��Ϊaction="update",�ύ�ķ�ʽΪmethod="post"��
-	����Ҫ���ṩ����������,�ֱ��ʾ:�û���(username),ԭ����(oldpwd),������(newpwd)
+	update.html:修改页面
+	该页面中form表单提交请求的路径为action="update",提交的方式为method="post"。
+	表单要求提供三个输入域,分别表示:用户名(username),原密码(oldpwd),新密码(newpwd)
 	
-	update_success.html:�޸ĳɹ���ʾҳ��
+	update_success.html:修改成功提示页面
 	
-	update_fail.html:�޸�ʧ����ʾҳ��
+	update_fail.html:修改失败提示页面
 	
-2.��com.webserver.servlets����������:UpdateServlet
-	������Ҫ�̳�HttpServlet����дservice����.�ڷ���������ͨ��request��ȡ�û�����޸���Ϣ,Ȼ������û�����user.dat�ļ���Ӧ�û�,
-	��ƥ����û������Ƿ����ύ������ԭ����һ��,һ���������븲��ԭ����.��ת���޸ĳɹ���ҳ��.�����벻һ�»���û�д��û�,��ת���޸�ʧ��ҳ��.
+2.在com.webserver.servlets包中添加类:UpdateServlet
+	该类需要继承HttpServlet并重写service方法.在方法中首先通过request获取用户输的修改信息,然后根据用户查找user.dat文件对应用户,
+	并匹配该用户密码是否与提交上来的原密码一致,一致则将新密码覆盖原密码.并转跳修改成功过页面.若密码不一致或者没有此用户,则转跳修改失败页面.
 
-3.�޸�conf/servlets.xml�ļ�,����������/myweb/update�봦����UpdateServlet��������.
-	����ClientHanlder����ͨ������������ҵ�UpdateServlet,����ͻ����404�����.
+3.修改conf/servlets.xml文件,将表单请求/myweb/update与处理类UpdateServlet关联起来.
+	否则ClientHanlder不能通过这个请求来找到UpdateServlet,结果就会出现404的情况.
 
 ==============================================v17===============================================

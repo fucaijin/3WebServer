@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+	<h1>注册表单</h1>
+	<form  action="http://www.baidu.com" method="GET">
+		<table border="1" cellspacing="0" cellpadding="5">
+			<tr>
+				<td>用户名:</td>
+				<td><input type="text" name="username"></td>
+			</tr>
+			
+			<tr>
+				<td>密码:</td>
+				<td><input type="password" name="password"></td>
+			</tr>
+			
+			<tr>
+				<td>确认密码:</td>
+				<td><input type="password" name="confirmtpassword"></td>
+			</tr>
+			
+			<tr>
+				<td>昵称:</td>
+				<td><input type="text" name="nickname"></td>
+			</tr>
+			
+			<tr>
+				<td>性别:</td>
+				<td>
+					<input type="radio" name="gender" value="male" id="gender_male"><label for="gender_male">男</label>
+					<input type="radio" name="gender" value="female" id="gender_female"><label for="gender_female">女</label>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>爱好:</td>
+				<td>
+					<input type="checkbox" name="hobby" value="basketball" id="basketball"><label for="basketball">篮球</label>
+					<input type="checkbox" name="hobby" value="kinggame" id="kinggame"><label for="kinggame">王者荣耀</label>
+					<input type="checkbox" name="hobby" value="fallinlove" id="fallinlove"><label for="fallinlove">搞对象</label>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>生日:</td>
+				<td>
+					<input type="date" name="birthday"></input>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>头像:</td>
+				<td>
+					<input type="file" name="pic">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>城市:</td>
+				<td>
+					<select name="city">
+						<option>请选择</option>
+						<option value="hk" selected="selected">海口</option>
+						<option value="bj">北京</option>
+						<option value="sh">上海</option>
+						<option value="gz">广州</option>
+					</select>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td>自我介绍:</td>
+				<td>
+					<textarea rows="5" cols="20" placeholder="说点什么...." name="desc"></textarea>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>验证码:</td>
+				<td>
+					<input type="text" name="identifyingcode">
+					<img src="../imgs/g.jpg" height="5%">
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" value="注册">
+					<input type="reset">
+				</td>
+			</tr>
+			
+		</table>
+	</form>
+</center>
+</body>
+</html>

@@ -1,6 +1,8 @@
 package com.webserver.http;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -114,5 +116,16 @@ public class HttpContext {
 		System.out.println(getMimeType(split[split.length-1]));;//方法1
 //		System.out.println(fileName.substring(fileName.lastIndexOf(".")+1));//方法2
 //		initMimeMapping();
+		
+//		// 十六进制转unicode
+//		try {
+//			String decode = URLDecoder.decode("%5c%0f%9e%21%9e%21", "unicode");
+//			System.out.println(decode);
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//		}
+		
+		
+		
 	}
 }

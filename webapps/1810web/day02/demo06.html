@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- action:提交地址
+		method:请求方式
+			1.get:请求参数会放在请求地址的后面
+			2.post:请求参数会放在请求体里面
+			
+		name属性必须有,否则提交时候不会传递此参数
+		value代表文本框里默认的内容
+		readonly:只读
+	 -->
+	<form action="http://www.baidu.com" method="get">
+		用户名:<input type="text" name="user" value="abc" maxlength="5" readonly="true"><br>
+		密码: <input type="password" name="password" placeholder="请输入用户名"><br>
+		性别: <input type="radio" name="gender" value="male" checked="checked" id="nan"><label for="nan">男</label> <!-- checked默认选中 -->
+		<input type="radio" name="gender" value="female" id="nv"><label for="nv">女</label><br>
+		兴趣爱好:
+		<input type="checkbox" name="hobby" value="basketboll" id="sport"><label for="sport">打篮球</label>
+		<input type="checkbox"  name="hobby" value="game" id="kinggame"><label for="kinggame">王者农药</label>
+		<input type="checkbox"  name="hobby" value="coding" id="code"><label for="code">撸代码</label><br>
+		生日:<input type="date" name="birthday"><br>
+		靓照:<input type="file" name="pic"><br>
+		<!-- 隐藏域: 当需要给服务器传递数据,但是这个数据不需要展示给用户的时候,使用隐藏域,例如商品id等
+		  -->
+		<input type="hidden" name="aaa" value="bbb">
+		
+		个人介绍:<textarea rows="3" cols="20" placeholder="此属性是文本,只要是输入框都可以使用..." name="desc"></textarea><br>
+		所在城市:<select name="city">
+			<option>请选择</option>
+			<!-- 如果value不写,就传option标签里面的内容,如果写了就传value的值 -->
+			<!-- selected="selected" 默认选择 -->
+			<option value="hk" selected="selected">海口</option>
+			<option value="bj">北京</option>
+			<option value="sh">上海</option>
+			<option value="gz">广州</option>
+		</select>
+		
+		<hr>
+		<input type="submit" value="注册"><br>
+		<!-- 重置所有  -->
+		<input type="reset" value="设置按钮的文字">
+<!-- 		<input type="reset"> -->
+		<!-- 自定义按钮 此处没有定义事件 -->
+		<input type="button" value="按钮">
+		
+	</form>
+</body>
+</html>

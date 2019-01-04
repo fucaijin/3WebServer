@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			#d1{
+				width:200px;
+				height:200px;
+				background-color:green;
+				/* 设置背景图片 */
+				background-image: url("../imgs/k.jpg");
+				/* 修改背景图片尺寸 */
+				background-size: 100px 100px;
+				/* 禁止重复 */
+				background-repeat: no-repeat;
+				/* 修改图片位置: 通过两个单词来控制或百分比,一个水平方向(left center right),一个垂直方向(top center bottom) */
+				/* background-position: center center; */
+				background-position: 85% 85%;
+			}
+			
+			#s1{
+				background-color: blue;
+				/* 行内元素不能修改宽高,因此下面的代码是无效的 */
+				width:100px;
+				height:100px;
+			}
+		</style>
+	</head>
+<body>
+
+	<span id="s1">s1</span>
+	<span>s2</span>
+	<div id="d1"></div>
+	
+</body>
+</html>

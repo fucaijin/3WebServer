@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			alert("第二种引入方式");/* 此处会在加载页面的时候执行,即加载head的时候执行(此时页面还未显示) */
+		</script>
+		
+		<script type="text/javascript" src="first.js">
+			/* 如果引入了js文件则在标签体内不能写js代码,写了也会无效  */
+		</script>
+	</head>
+	<body>
+		<input type="button" value="点我试试" onclick="alert('试试就试试!')">
+	</body>
+</html>

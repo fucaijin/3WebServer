@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		/* id选择器,以#号开头:将页面中某一个元素,不同的标签的id可以一样,但是不推荐,id应该是页面唯一的 */
+		#d2{
+			color:red;
+		}
+		
+		/* 类选择器,以.开头:选中页面中的一类的多个元素*/
+		.c1{
+			color:blue;
+		}
+		
+		/* 属性选择器 */
+		input[type="text"]{
+			background:red;
+		}
+		
+		input[type="password"]{
+			background:purple; //紫色
+		}
+	</style>
+</head>
+
+<body>
+	<input type="text">
+	<input type="password">
+	
+	<div>div1</div>
+	<div id="d2">div2</div>
+	<div class="c1">div3</div>
+	
+	<span>span1</span>
+	<span>span2</span>
+	<span class="c1">span3</span>
+	
+</body>
+
+</html>

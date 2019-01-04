@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			/* 子孙后代选择器  */
+			#d1 p{/* 选中id为d1下的p标签 */
+				color:red;
+			}
+			
+			#d1 div p{
+				background-color: green;
+			}
+			
+			/* 只选择p1元素:子元素选择器 */
+			#d1>p{/* 选择id为d1的元素的子标签是p标签的元素 */
+				border:1px solid purple;
+			}
+			
+			/* 只选择p4 */
+			body>p{
+				color:yellow;
+			}
+		</style>
+	</head>
+	
+	<body>
+	
+		<div id="d1">
+			<p>p1</p>
+			<div>
+				<p>p2</p>
+			</div>
+		</div>
+			
+		<div id="d2">
+			<p>p3</p>
+		</div>	
+		<p>p4</p>
+		
+	</body>
+	
+</html>

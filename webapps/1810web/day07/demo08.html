@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 300px;
+			}
+			
+			.red{
+				width: 100px;
+				height: 100px;
+				float:left;
+				background-color: red;
+			}
+			
+			.blue{
+				width: 100px;
+				height: 100px;
+				float:left;
+				background-color: blue;
+			}
+		</style>
+		<script type="text/javascript">
+			function fun(){
+				var d = document.getElementById("d1");
+				for(i = 0; i < 9; i++){
+					if(i%2==0){
+						d.innerHTML += "<div class='red'></div>"
+					}else{
+						d.innerHTML += "<div class='blue'></div>"
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="按钮" onclick="fun()">
+		<div id="d1"></div>
+	</body>
+</html>

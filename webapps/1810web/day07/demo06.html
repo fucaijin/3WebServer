@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function fun(arg){
+				var num1 = document.getElementById("i1").value;
+				var num2 = document.getElementById("i2").value;
+				var d = document.getElementById("d1");
+				
+				if(isNaN(num1) ||isNaN(num2)){
+					d.innerText = "输入错误";
+					return;
+				}
+				
+				switch(arg){
+					case "+":
+						d.innerText = parseFloat(num1) + parseFloat(num2);
+						break;
+					case "-":
+						d.innerText = num1-num2;
+						break;
+					case "*":
+						d.innerText = num1*num2;
+						break;
+					case "/":
+						d.innerText = num1/num2;
+						break;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" placeholder="请输入一个数字" id="i1">
+		<input type="text" placeholder="请输入一个数字" id="i2">
+ 		<input type="button" value="+" onclick="fun('+')">
+		<input type="button" value="-" onclick="fun('-')">
+		<input type="button" value="*" onclick="fun('*')">
+		<input type="button" value="/" onclick="fun('/')">
+		<div id="d1"></div>
+	</body>
+</html>

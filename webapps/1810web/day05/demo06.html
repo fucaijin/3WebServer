@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			#big {
+				width: 300px;
+				background-color: green;
+				overflow: hidden;
+			}
+			
+			#d1{
+				width: 120px;
+				height: 80px;
+				background-color: red;
+				float: left;
+			}
+			
+			#d2{
+				/* 禁止左右两侧有浮动  */
+				/* clear:both; */
+				width: 120px;
+				height: 80px;
+				background-color: yellow;
+				float: left;
+			}
+			
+			#d3{
+				width: 120px;
+				height: 80px;
+				background-color: blue;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="big">
+			<div id="d1"></div>
+			<div id="d2"></div>
+			<div id="d3"></div>
+		</div>
+	</body>
+</html>

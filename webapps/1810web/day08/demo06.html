@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			// 第一种创建正则的方式，格式: /规则/模式(i:忽略大小写 g:全局查找)
+			var reg = /^a/i;
+			reg = /m$/;//以m为结尾，不忽略大小写
+			reg = /^\d{3}$/;//只包含3位数字
+			reg = /^x\d{5}y$/;//以x开头，以y结尾，中间有5位数字
+			reg = /\d{3,5}/;//包含3-5位数字
+			reg = /^\w{6,10}$/i;//由6-10位数字字母下划线组成
+			
+			// 第二种创建方式 第一个参数时规则
+			// 第二个参数时模式(可省略)
+			// 这种方式正则种的\需要转义
+			var reg2 = new RegExp("^\\w{6,10}$");
+			
+			// 查找内容的方法exec()
+			var str = "you can you up no can no b b";
+			var r = /no/g;//全局查找no。循环查找
+			alert(r.exec(str));//no
+			alert(r.exec(str));//no
+			alert(r.exec(str));//null
+			alert(r.exec(str));//no
+			alert(r.exec(str));//no
+			alert(r.exec(str));//null
+			
+			//校验方法(校验参数是否符合正则表达式)
+			var r2 = /^you/i;
+			alert(r2.test(str));
+			
+			// 1.查找方法 1次性返回所有找到的内容
+			var arr = str.match(r);//返回一个找到的符合的数组
+			alert(arr);
+			
+			// 2.查找替换 替换所有   将符合所有正则表达式的内容替换为参数值
+			alert(str.replace(r,"不"));
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

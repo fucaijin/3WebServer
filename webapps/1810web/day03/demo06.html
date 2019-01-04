@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			/* 伪类选择器：选择不同状态的元素 */
+			/* 访问过的状态↓  */
+			a:visited {
+				color:red;
+			}
+			
+			/* 悬停状态↓ */
+			a:hover {
+				color:blue;
+			}
+			
+			/* 未访问状态↓ */
+			a:link {
+				color:yellow;
+			}
+
+			/* 点击时状态↓ */
+			a:active {
+				color:green;
+			}
+			
+			/* 任意元素选择器：选中页面中所有元素，包<html>和 <body> */
+			*{
+				border:1px solid red;
+			}
+			
+			/* 
+				css中常用的样式
+				颜色的赋值方式：
+				1.通过颜色名称赋值：red	blue等..
+				2.6位的16进制赋值：#rgb的值(每2位表示一个颜色,如#ff1f3e,此方法用的多)
+				3.3位的16进制赋值：#rgb的值(每1位表示一个颜色,如#f1b,此方法用的少)
+				4.3位的10进制赋值：rgb(255,0,39)
+				5.3位的10进制赋值：rgba(255,0,0,0.35)(最后一位表示透明度取值,值域为0-1,可以取任意小数，值越小越透明)
+			*/
+		</style>
+	</head>
+	
+	<body>
+		<a href="../imgs/k.jpg">超链接1</a>
+		<a href="../imgs/a.jpg">超链接2</a>
+		<a href="../imgs/b.jpg">超链接3</a>
+		<a href="../imgs/2.gif">超链接4</a>
+	</body>
+	
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div {
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+		}
+		
+		#d1{
+			/* 绝对定位，元素脱离文档流  */
+			position: absolute;
+			/* 位置:默认相对于窗口,即body的margin也影响不到它;某个上级元素  */
+			left:0;
+			top:0;
+		}
+		
+		#big{
+			width: 300px;
+			height: 300px;
+			margin: 100px 0 0 100px;
+			background-color: green;
+			position: relative;
+		}
+		
+		#middle{
+			width: 100px;
+			height: 100px;
+			margin: 100px 0 0 100px;
+			background-color: blue;
+		}
+		
+		#small{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		
+		
+		
+		
+	</style>
+	</head>
+	
+	<body>
+		<div id="d1">div1</div>
+		<div id="d2">div2</div>
+		<div id="d3">div3</div>
+		<div id="big">
+			<div id="middle">
+				<div id="small"></div>
+			</div>
+		</div>
+	</body>
+</html>

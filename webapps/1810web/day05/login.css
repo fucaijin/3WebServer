@@ -1,0 +1,157 @@
+@CHARSET "UTF-8";
+body{
+		font: 12px "simhei", Arial, Helvetica, sans-serif;
+    	color: #666;
+    	margin: 0px;
+    	background-color: #f5f5f5;
+	}
+
+	header{
+		width: 1000px;
+		margin: 0 auto;
+		padding: 20px 40px;
+		overflow: hidden;
+	}
+	header>img{
+		float: left;
+	}
+	header>h3{
+		float: left;
+		margin: 10px 0 0 20px;
+		font-weight: normal;
+		font-size: 24px;
+	}
+	#form_div{
+		width: 100%;
+		height: 560px;
+		background-image: url(../images/regist.png);
+	}
+	#form_panel{
+		width: 253px;
+		background-color: rgba(0,0,0,0.3); 
+		float: right;
+		margin: 122px 122px 0 0 ;
+		padding: 8px;
+		color: white;
+	}
+	#form_panel>p{
+		font-size: 18px;
+		border-bottom: 1px solid white;
+		padding-bottom: 6px;
+	}
+	#form_panel>p>a{
+		float: right;
+		font-size: 12px;
+		color: white;
+		text-decoration: none;
+		position: relative;
+		top: 6px;
+	}
+	.filed>input{
+		width: 213px;
+		padding: 10px 20px;
+		border: 0;
+	}
+	.filed>p{
+		font-size: 12px;
+		color: red;
+		margin: 5px 0;
+	}
+	.filed{
+		/* 位置参考 */ 
+		position: relative;
+	}
+	.filed>img{
+		position: absolute;
+		top: 4px;
+		right: 10px;
+	}
+	#auto_div>input{
+		position: relative;
+		top: 3px;
+	}
+	#auto_div>a{
+		float: right;
+		color: white;
+		text-decoration: none;
+		position: relative;
+		top: 3px;
+	}
+	#form_panel>input{
+		margin-top:5px;
+		width: 253px;
+		height: 35px;
+		background-color: #0aa1ed;
+		color: white;
+		border: 0;
+		border-radius:3px;
+	}
+	
+	#service_div{
+		width: 1000px;
+		margin: 40px auto;
+		overflow: hidden;
+	}
+	#service_div>div{
+		float: left;
+		width: 250px;
+		text-align: center;
+	}
+	#service_div>div>p{
+		margin-top: 0px;
+	}
+	footer{
+		background-color: white;
+		height: 200px;
+		padding: 30px 0 20px 0;
+	}
+	/* 最大div */
+	footer>div{
+		width: 1000px;
+		margin: 0 auto;
+		
+	}
+	/* 最大div里面的div */
+ 	footer>div>div{
+ 		overflow: hidden;
+ 	}
+ 	/* 三个div */
+ 	footer>div>div>div{
+ 		width: 333px;
+ 		float: left;
+ 	}
+ 	/* 让中间div中第一层li浮动到一行 */
+ 	#center_div>ul>li{
+ 		float: left;
+ 		width: 111px;
+ 		text-align: center;
+ 	}
+ 	
+ 	#center_div ul{
+ 		list-style-type: none;
+ 		padding: 0;
+ 	}
+ 	
+ 	#center_div>ul>li>a{
+ 		color: #333;
+ 		text-decoration: none;
+ 		font-size: 14px;
+ 	}
+ 	
+	#center_div>ul>li>ul>li>a{
+		color: #808080;
+ 		text-decoration: none;
+ 		font-size: 12px;
+ 		padding-top: 15px;
+ 		display: inline-block;
+	}
+	#right_div>div{
+		width: 125px;
+		text-align: center;
+		display: inline-block;
+	}
+	
+	footer>div>p{
+		text-align: center;
+	}
+	

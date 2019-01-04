@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function fun1(){
+				var value = document.getElementById("i1").value;
+				var div = document.getElementById("d1");
+				if(value.endsWith("吗？")||value.endsWith("吗")){
+					value = value.substring(0,value.indexOf("吗"));
+				}
+				div.innerText = value
+				//alert(value);
+			}
+		</script>
+	</head>
+	<body>
+		<input id="i1" type="text">
+		<input type="button" value="按钮" onclick="fun1()">
+		<div id="d1">div1</div>
+	</body>
+</html>

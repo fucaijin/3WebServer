@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			body{
+				font: 12px "simhei", Arial, Helvetica, sans-serif;
+				margin:0px;/* 去掉自带的外边距 */
+			}
+			
+			#left_div{
+				width: 611px;
+				height: 376px;
+				background-color: #e8e8e8;
+				background-image: url("../images/itemCat/study_computer_img1.png");
+				background-repeat:no-repeat;
+				background-size:318px 319px;
+				background-position: 90% 65%;
+				overflow: hidden;/* 解决margin粘连问题  */
+				float: left;
+			}
+			
+			#left_div>div{
+				width: 245px;
+				height: 232px;
+				/* border: 1px solid red; */
+				margin: 68px 0 0 36px;/* 左上右下的外边距  */
+			}
+			
+			.p1{
+				font-size: 32px;
+				color: #333;
+				margin-bottom: 0px;
+			}
+			
+			.p2{
+				font-size: 12px;
+				color: #666;
+			}
+			
+			.p3{
+				font-size: 24px;
+				color: #0aa1ed;
+				font-weight: bold;
+				margin-bottom: 8px;
+			}
+			
+			div>input{
+				width: 132px;
+				height: 40px;
+				background-color: #0aa1ed;
+				color: white;
+				font-size:20px;
+				border-radius:2px;
+				border: 0px; /* 去掉自带边框  */
+			}
+			
+			#right_div{
+				width: 375px;
+				height: 376px;
+				background-color: #e8e8e8;
+				background-image: url("../images/itemCat/study_computer_img2.png");
+				background-size: 292px 232px;
+				background-repeat: no-repeat;
+				background-position: 80% 90%;
+				overflow: hidden;
+				float: right;
+			}
+			
+			#right_div div{
+				margin:39px 0 0 25px;
+			}
+			
+			article{
+				width: 1000px;
+				height: 376px;
+				margin: 0 auto;
+			}
+			
+		</style>
+	</head>
+		
+	<body>
+	
+	<!-- <img src="../images/itemCat/study_computer_img3.png"> -->
+	<article>
+		<div>
+		
+			<div id="left_div">
+				<div>
+					<p class="p1">灵越 燃7000系列</p>
+					<p class="p2">酷睿双核i5处理器 | 256GB SSD | 8GB内存 <br>英特尔HD显卡620含共享显卡内存</p>
+					<p class="p3">￥4999.00</p>
+					<input type="button" value="查看详情">
+				</div>
+			</div>
+			
+			<div id="right_div">
+				<div>
+					<p class="p1">颜值 框不住</p>
+					<p class="p2">酷睿双核i5处理器 | 256GB SSD | 8GB内存 <br>英特尔HD显卡620含共享显卡内存</p>
+					<p class="p3">￥6888.00</p>
+					<input type="button" value="查看详情">
+				</div>
+			</div>
+			
+		</div>
+	</article>
+	
+	</body>
+</html>
+
+

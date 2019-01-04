@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			/* 无参无返回值  */
+			function fun1(){
+				alert("fn1执行了");
+			}
+			//fun1();/* 方法调用 */
+			
+			/* 有参无返回值  */
+			function fun2(age,name){
+				alert("name:" + name + "  age:" + age);
+			}
+			//fun2(5,"abc");
+			
+			/* 有参有返回值  */
+			function fun3(num1, num2){
+				return num1+num2;
+			}
+			//var sum = fun3(3,8);
+			//alert(sum);
+			
+			/* 无参有返回值  */
+			function fun4(){
+				return "fun4返回值";
+			}
+			var result = fun4();
+			alert(result);
+			
+			// 函数定义的第二种方式
+			var fun5 = function(){
+				alert("fun5被调用了");
+			}
+			fun5();
+			
+			// 函数定义的第三种方式
+			var fun6 = new Function("a","b","return a*b");
+			alert(fun6(5,9));
+		</script>
+	</head>
+	<body>
+		<input type="button" value="fun1" onclick="fun1()">
+	</body>
+</html>

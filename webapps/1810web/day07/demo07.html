@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.red{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+			
+			.blue{
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+			}
+		</style>
+		<script type="text/javascript">
+			function fun(arg){
+				var d = document.getElementById("d1");
+				d.innerHTML += "<div class='"+arg+"'></div>";/* 往标签里追加元素使用+= */
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="蓝色" onclick="fun('blue')">
+		<input type="button" value="红色" onclick="fun('red')">
+		<div id="d1"></div>
+	</body>
+</html>

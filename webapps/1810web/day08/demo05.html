@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			var arr = [58, 51, 8, 2, 23, 66];
+			// 创建一个自定义的排序方法
+			function sortFun(a,b){
+				//return a-b;//升序
+				return b-a;//降序
+			}
+			
+			// 使用自定义方法排序,如果数组中装的是自定义对象,可以通过对象的任意属性进行排序,比较灵活
+			alert(arr.sort(sortFun));
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

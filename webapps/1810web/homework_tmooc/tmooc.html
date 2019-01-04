@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			body{
+				margin: 0px;
+				background-color: #f6f5fa;
+			}
+			
+			/********************************头部样式********************************/
+			header{
+				height: 70px;
+				background-color: #4f8dfe;
+				overflow: hidden;
+			}
+			
+			header>div{
+				width: 1200px;
+				margin: 0 auto;
+				position: relative;
+				height:70px;
+			}
+			
+			#header_logo{
+				float: left;
+				margin-top: 15px;
+			}
+			
+			#header_center{
+				float: left;
+			}
+			
+			#header_center>ul{
+				list-style-type: none;
+				position: absolute;
+				top: 8px;
+			}
+			
+			#header_center li{
+				float: left;
+			}
+			
+			#header_center a{
+				color: white;
+				text-decoration: none;
+				padding: 0 0 0 40px;
+			}
+			
+			#header_right{
+				float: right;
+				position: absolute;
+				right: 0;
+				height: 75px;
+				vertical-align: center;
+			}
+			
+			#header_serach{
+				width: 35px;
+				height: 35px;
+				float: right;
+				position: absolute;
+				right: 130px;
+				top:16px;
+			}
+			
+			#header_right>a{
+				color: white;
+				text-decoration: none;
+				padding: 0 15px 0 15px;
+				margin-bottom: 15px;
+				line-height: 70px;
+			}
+			
+			#header_login{
+				border-left: 1px solid white;
+			}
+			
+
+			/* 悬停状态↓ 状态选择器 */
+			#header_center a:hover {
+				color:rgb(50, 50, 255);
+			}
+			/********************************头部结束********************************/
+			
+			/********************************第二头部********************************/
+			#second_div{
+				height:440px;
+				background-color: white;
+				padding-top: 30px;
+				position: relative;
+			}
+			
+			#header_second_inner{
+				height:440px;
+				width:1200px;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			#header_second_left{
+				width:225px;
+				background-color: #292d32;
+				border-radius:10px 0 0 10px; 
+			}
+			
+			#header_second_left a{
+				display:inline-block;
+				color: #999999;
+				font-size: 14px;
+			}
+			
+			#header_second_left div{
+				width:225px;
+				border-bottom: 1px solid #1c252d;
+			}
+			
+			.header_second_left_selector{
+				float: left;
+				line-height: 59px;
+				margin-left: 30px;
+			}
+			
+			#header_second_left a:hover {
+				background-color:white;
+				color: black;
+			}
+			
+			.header_second_right_selector{
+				float: right;
+				line-height: 59px;
+				margin-right: 20px;
+			}
+			
+			#big_img{
+				position: absolute;
+				right: 0;
+				top: 0;
+				border-radius: 0 10px 0 0;
+			}
+			
+			#header_second_right_bottom{
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				height: 106px;
+				width: 975px;
+				overflow: hidden;
+			}
+			
+			#header_second_right_bottom>div{
+				width: 160px;
+				margin-top: 38px;
+				margin-left: 75px;
+				float: left;
+			}
+			
+			#header_second_right_bottom>div img,p{
+				float: left;
+				margin: 0px;
+			}
+			
+			.text1{
+				color: #333;
+				font-size: 13px;
+			}
+			
+			.text2{
+				color: #888;
+				font-size: 10px;
+				line-height: 10px;
+			}
+			
+			#header_second_right_bottom>div p{
+				margin-left: 5px;
+			}
+			/********************************第二头部结束********************************/
+			
+			/******************************* 中部   ********************************/
+			
+			article{
+				width: 1200px;
+				margin: 0 auto;
+			}
+			
+			.d1{
+				padding: 15px 0;
+			}
+			
+			.float_left_img,float_left_text{
+				float: left;
+			}
+			
+			.float_left_text{
+				margin-left: 10px;
+				font-size: 20px;
+				line-height: 20px;
+			}
+			
+			.see_more{
+				float: right;
+				text-decoration: none;
+				color: #999999;
+				font-size: 14px;
+			}
+			
+			.d2{
+				height: 223px;
+				margin:22px 0; 
+				margin-right: 12px;
+				margin-bottom: 12px;
+			}
+			
+			.d2_img{
+				height: 125px;
+				width: 224px;
+				border-radius:5px 5px 0px 0px; 
+			}
+			
+			.d2_item_a p{
+				font-size: 15px;
+			}
+			
+			.d2_item_a_no_margin p{
+				font-size: 15px;
+			}
+			
+			.d2_text_left{
+				float: left;
+				color: #4f8dfe;
+			}
+			
+			.d2_text_right{
+				float: right;
+				color: #888;
+				font-size: 10px;
+			}
+			
+			.d2_text_tile{
+				color: #333;
+				margin: 8px 0;
+			}
+			
+			.d2_text_left,.d2_text_tile{
+				padding-left: 10px;
+			}
+			
+			.d2_item_a{
+				width: 224px;
+				height: 223px;
+				float: left;
+				margin-right: 20px;
+				background-color: white;
+				border-radius:0px 0px 5px 5px; 
+			}
+			
+			.d2>ul{
+				list-style-type: none;
+				height: 223px;
+				width: 1200px;
+				padding:0;
+			}
+			
+			.d2_item_a_no_margin{
+				width: 224px;
+				height: 223px;
+				float: left;
+				background-color: white;
+				border-radius:0px 0px 5px 5px;
+			}
+			
+			#middle_img{
+				width: 1200px;
+				height: 100px;
+				margin-top: 30px;
+			}
+			
+			.bottom_item_div{
+				width:308px;
+				height:100px;
+				background-color: white;
+				border-radius: 5px;
+				padding:26px 40px;
+				margin-right: 18px;
+				position: relative;
+				float: left;
+				margin-bottom: 20px;
+			}
+			
+			.bottom_item_div_no_margin{
+				width:308px;
+				height:100px;
+				background-color: white;
+				border-radius: 5px;
+				padding:26px 40px;
+				position: relative;
+				float: left;
+			}
+			
+			.bottom_item_div a{
+				padding:5px 10px;
+				border-radius: 5px;
+				background-color: #f6f5fa;
+				display: inline-block;
+				margin-top: 7px;
+			}
+			
+			.bottom_item_div ul{
+				padding:0 0 0 8px;
+				font-size: 12px;
+				margin-top: 25px;
+			}
+			
+			.bottom_item_div_no_margin a{
+				padding:5px 10px;
+				border-radius: 5px;
+				background-color: #f6f5fa;
+				display: inline-block;
+				margin-top: 7px;
+			}
+			
+			.bottom_item_div_no_margin ul{
+				padding:0 0 0 8px;
+				font-size: 12px;
+				margin-top: 25px;
+			}
+			
+			#bottom_div{
+				margin-top: 30px;
+			}
+			
+			.bottom_item_img{
+				float: right;
+				position: absolute;
+				right: 30px;
+				bottom: 25px;
+			}
+			
+			#bottomst_img{
+				height: 95px;
+				width:100%;
+				padding-bottom: -3px;
+			}
+			
+			/*******************************中部结束********************************/
+			
+			/******************************* 脚部  ********************************/
+			footer{
+				background-color: #282c30;
+				height: 197px;
+			}
+			
+			#footer_outer{
+				width: 1200px;
+				height:197px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			
+			#footer_inner{
+				width: 1200px;
+				height:100px;
+				margin: 0 auto;
+				margin-top: 50px;
+				position: relative;
+				border-bottom: 1px solid #3d3e3f;
+			}
+			
+			#footer_inner ul{
+				list-style-type: none;
+				padding: 0px;
+				display:inline-block;
+				margin-bottom: 15px;
+				margin-left: -30px;
+			}
+			
+			#footer_inner a{
+				text-decoration: none;
+				color: #999999;
+				font-size: 14px;
+			}
+			
+			#footer_inner li{
+				float: left;
+				padding: 0 30px;
+				line-height: 14px;
+			}
+			
+			#footer_right_qr_code{
+				float: right;
+				height: 75px;
+				width: 75px;
+				position: absolute;
+				top:0;
+				right:0;
+			}
+			
+			.footer_right_text{
+				margin-right:100px; 
+				font-size: 10px;
+				color: #666666;
+				float: right;
+				margin-top: -30px;
+			}
+			
+			#copyright{
+				font-size: 10px;
+				color: #666666;
+			}
+			
+			#footer_inner_right{
+				float: right;
+			}
+			
+			#footer_inner_li{
+				border-right: 1px solid #999999;
+			}
+			
+			#author{
+				text-align:center;
+				font-size: 10px;
+				color: #666666;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<header>
+			<div>
+				<img id="header_logo" src="../tmooc/images/tmooc-logo.png">
+				
+				<div id="header_center">
+					<ul>
+						<li><a href="#">首页</a></li>
+						<li><a href="#">免费课</a></li>
+						<li><a href="#">直播课</a></li>
+						<li><a href="#">会员课</a></li>
+						<li><a href="#">培优课</a></li>
+						<li><a href="#">线上班（VIP）</a></li>
+						<li><a href="#">线下班</a></li>
+						<li><a href="#">最新活动</a></li>
+					</ul>
+				</div>
+				
+				<div id="header_right">
+					<a href="#">注册</a><a href="#" id="header_login">登录</a>					
+				</div>
+				<img id="header_serach" src="../tmooc/images/search_icon.png">
+				
+			</div>
+		</header>
+		<div id="second_div">
+			<div id="header_second_inner">
+				<div id="header_second_left">
+					<a href="#"><div><span class="header_second_left_selector">前端/后端开发</span><span class="header_second_right_selector">&gt</span></div></a>
+					<a href="#"><div><span class="header_second_left_selector">大数据/云计算</span><span class="header_second_right_selector">&gt</span></div></a>
+					<a href="#"><div><span class="header_second_left_selector">移动开发/游戏</span><span class="header_second_right_selector">&gt</span></div></a>
+					<a href="#"><div><span class="header_second_left_selector">物联网/测试</span><span class="header_second_right_selector">&gt</span></div></a>
+					<a href="#"><div><span class="header_second_left_selector">营销/产品/运营</span><span class="header_second_right_selector">&gt</span></div></a>
+					<a href="#"><div><span class="header_second_left_selector">数字艺术</span><span class="header_second_right_selector">&gt</span></div></a>
+					<a href="#"><div><span class="header_second_left_selector">其他职业课程</span><span class="header_second_right_selector">&gt</span></div></a>
+				</div>
+				
+				<img id="big_img" src="../tmooc/images/big_img.jpg">
+				
+				<div id="header_second_right_bottom">
+					<div>
+						<img src="../tmooc/images/bind_phone.png">
+						<p class="text1">加入会员</p><br>
+						<p class="text2">尊享会员权益</p>
+					</div>
+					<div>
+						<img src="../tmooc/images/join_vip.png">
+						<p class="text1">手机绑定</p><br>
+						<p class="text2">获取资料下载权限</p>
+					</div>
+					<div>
+						<img src="../tmooc/images/tabel.png">
+						<p class="text1">表单报名</p><br>
+						<p class="text2">获赠平安就业险</p>
+					</div>
+					<div>
+						<img src="../tmooc/images/help.png">
+						<p class="text1">帮助页面</p><br>
+						<p class="text2">带你玩转TMOOC</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<article>
+			<div class="d1">
+				<img class="float_left_img" src="../tmooc/images/live_class.png">
+				<p class="float_left_text">直播课</p>
+				<a class="see_more" href="#">查看更多>></a>
+			</div>
+			
+			<div class="d2">
+				<ul>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a_no_margin" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="d1">
+				<img class="float_left_img" src="../tmooc/images/vip_class_img.png">
+				<p class="float_left_text">会员课</p>
+				<a class="see_more" href="#">查看更多>></a>
+			</div>
+			
+			<div class="d2">
+				<ul>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a_no_margin" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="d1">
+				<img class="float_left_img" src="../tmooc/images/free_class_img.png">
+				<p class="float_left_text">免费课</p>
+				<a class="see_more" href="#">查看更多>></a>
+			</div>
+			
+			<div class="d2">
+				<ul>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a_no_margin" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="d1">
+				<img class="float_left_img" src="../tmooc/images/king_class_img.png">
+				<p class="float_left_text">培优课</p>
+				<a class="see_more" href="#">查看更多>></a>
+			</div>
+			
+			<div class="d2">
+				<ul>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a class="d2_item_a_no_margin" href="#">
+							<div class="d2_item">
+								<img class="d2_img" src="../tmooc/images/python.png">
+								<p class="d2_text_tile">Python趣味项目实操课（已结束）</p>
+								<p class="d2_text_left">免费</p>
+								<p class="d2_text_right">65464人报名</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<img id="middle_img" src="../tmooc/images/middle_img.png">
+			
+			<div class="d1">
+				<img class="float_left_img" src="../tmooc/images/our_good.png">
+				<p class="float_left_text">我们的优势</p>
+			</div>
+			
+			<div id="bottom_div">
+				<div class="bottom_item_div">
+					<a>课程体系</a>
+					<ul>
+						<li>与国际厂商共同打造IT精品课程</li>
+						<li>22大课程体系紧跟企业需求</li>
+					</ul>
+					<img class="bottom_item_img" src="../tmooc/images/course_system.png">
+				</div>
+				<div class="bottom_item_div">
+					<a>课程体系</a>
+					<ul>
+						<li>与国际厂商共同打造IT精品课程</li>
+						<li>22大课程体系紧跟企业需求</li>
+					</ul>
+					<img class="bottom_item_img" src="../tmooc/images/course_system.png">
+				</div>
+				<div class="bottom_item_div_no_margin">
+					<a>课程体系</a>
+					<ul>
+						<li>与国际厂商共同打造IT精品课程</li>
+						<li>22大课程体系紧跟企业需求</li>
+					</ul>
+					<img class="bottom_item_img" src="../tmooc/images/course_system.png">
+				</div>
+				<div class="bottom_item_div">
+					<a>课程体系</a>
+					<ul>
+						<li>与国际厂商共同打造IT精品课程</li>
+						<li>22大课程体系紧跟企业需求</li>
+					</ul>
+					<img class="bottom_item_img" src="../tmooc/images/course_system.png">
+				</div>
+				<div class="bottom_item_div">
+					<a>课程体系</a>
+					<ul>
+						<li>与国际厂商共同打造IT精品课程</li>
+						<li>22大课程体系紧跟企业需求</li>
+					</ul>
+					<img class="bottom_item_img" src="../tmooc/images/course_system.png">
+				</div>
+				<div class="bottom_item_div_no_margin">
+					<a>课程体系</a>
+					<ul>
+						<li>与国际厂商共同打造IT精品课程</li>
+						<li>22大课程体系紧跟企业需求</li>
+					</ul>
+					<img class="bottom_item_img" src="../tmooc/images/course_system.png">
+				</div>
+			</div>
+		</article>
+		<img id="bottomst_img" src="../tmooc/images/bottomst_img.png">
+			
+		<footer>
+			<div id="footer_outer">
+				<div id="footer_inner">
+					<ul>
+						<li id="footer_inner_li"><a href="#">关于我们</a></li>
+						<li id="footer_inner_li"><a href="#">招聘信息</a></li>
+						<li id="footer_inner_li"><a href="#">联系我们</a></li>
+						<li id="footer_inner_li"><a href="#">商务合作</a></li>
+						<li><a href="#">VIP服务</a></li>
+					</ul>
+					
+					<br><p id="copyright">Copyright © 北京达内金桥科技有限公司版权所有 京ICP备12003709号-3</p>
+					
+					<div id="footer_inner_right">
+						<img id="footer_right_qr_code" src="../tmooc/images/qr_code.jpg">
+						<p class="footer_right_text">达内精品在线WWW.TMOOC.CN 专注于IT职业技能培训</p><br>
+						<p class="footer_right_text">涵盖20余门课程体系，致力于打造权威的IT职业教育学习平台</p>
+					</div>
+					
+				</div>
+				
+				<div id="author">达内jsd1810&nbsp&nbsp&nbsp-&nbsp&nbsp&nbsp海口中心&nbsp&nbsp&nbsp-&nbsp&nbsp&nbsp符才锦&nbsp&nbsp&nbsp/&nbsp&nbsp&nbsp邓必文&nbsp&nbsp&nbsp/&nbsp&nbsp&nbsp余德恩</div>
+			</div>
+		</footer>
+	</body>
+</html>

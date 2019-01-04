@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function pingfang(){
+				var inputNum = document.getElementById("i1").value;// 获取输入框文本
+				var d = document.getElementById("d1");//获取div标签
+				
+				if(isNaN(inputNum)){//判断是否不是数字
+					d.innerText = "输入有误";//给div设置文本
+				}else{
+					d.innerText = inputNum*inputNum;
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<input type="text" id="i1">
+		<input type="button" value="求平方" onclick="pingfang()">
+		<div id="d1"></div>
+	</body>
+</html>

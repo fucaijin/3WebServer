@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function fun(){
+				d1.innerHTML="<ul>";
+				var str1 = i1.value.split(i2.value)
+				for(var i = 0; i<str1.length; i++){
+					d1.innerHTML+="<li>"+str1[i]+"</li>";
+				}
+				d1.innerHTML+="</ul>";
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="i1" placeholder="请输入信息">	
+		<input type="text" id="i2" placeholder="请输入分隔符">
+		<input type="button" value="添加" onclick="fun();">
+		<div id="d1"></div>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			span{
+				display:none; // 隐藏元素1 - 脱离文档流
+				/*visibility:hidden;// 隐藏元素2 - 不脱离文档流*/
+			}
+			
+			.ok{
+				display:none;
+			}
+			
+			.err{
+				display:inline;
+				color:red;
+				font-size:12px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			function checkun(){
+				// 创建正则,得到用户名判断
+				// 如果正确则s1的class头为ok,否则为err
+				var reg = /^\w{6,10}$/;
+				s1.className = reg.test(i1.value)?"ok":"err";
+				return reg.test(i1.value);
+			}
+			
+			function checkpw(){
+				// 创建正则,得到用户名判断
+				// 如果正确则s1的class头为ok,否则为err
+				var reg = /^\w{6,10}$/;
+				s2.className = reg.test(i2.value)?"ok":"err";
+				return reg.test(i2.value);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<!-- <a href="http://www.baidu.com" onclick="return false;">超链接</a> --><!-- 取消超链接  -->
+		<!-- <a href="http://www.baidu.com" onclick="return confirm('您确认离开吗?');">超链接</a> --><!-- 确认是否转向超链接地址  -->
+		
+		<form action="http://www.tmooc.cn" onsubmit="return checkun() + checkpw() == 2;"><!-- 不要使用短路与 但js没有非短路& -->
+			用户名:<input type="text" id="i1" onblur="checkun()"><span id="s1">用户名格式错误</span><br>
+			密码:<input type="text" id="i2" onblur="checkpw()"><span id="s2">密码格式错误</span><br>
+			<input type="submit" value="注册">
+		</form>	
+	</body>
+</html>

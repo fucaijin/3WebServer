@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			// 创建Person对象 有age和name属性
+			function Person(name,age){
+				//声明属性并赋值
+				this.name = name;
+				this.age = age;
+				
+				//声明方法
+				this.run = function(){
+					alert("name:"+this.name+" age:"+this.age);
+				}
+			}
+			
+			//实例化对象
+			var p = new Person("刘德华", 38);
+			//调用方法
+			p.run();
+			
+			
+			function Student(name,chinese,math,english){
+				this.name = name;
+				this.chinese = chinese;
+				this.math = math;
+				this.english = english;
+				this.study = function(){
+					alert(name + ",语文" + chinese + ",数学" + math + ",英语" + english);
+				}
+			}
+			
+			var student = new Student("fucaijin",89,90,94);
+			student.study();
+			
+			
+			// 创建空的对象
+			function SuperMan(){}
+			var sMan = new SuperMan();
+			sMan.name="克拉克";
+			sMan.fly=function(){
+				alert("我叫" + this.name+"我在飞！");
+			}
+			//调用对象的方法
+			sMan.fly();
+			
+			//创建对象的第二种方式
+			var p1={
+					"name":"关羽",
+					"age":18,
+					"run":function(){
+						alert("姓名："+this.name+", 年龄："+this.age);
+					}
+			}
+			//调用方法
+			p1.run();
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			div {
+				width:1920px;	
+				height:1080px;
+				background-color: red;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			function downfn(){
+				// 事件对象 event 对象内部保存着和时间相关的信息
+				// 获取点击的坐标(获取的是窗口(即以html为参考)的坐标)
+				console.log("鼠标按下 x:" + event.clientX + " y:" + event.clientY);
+				
+				// 实现点击哪里,哪里就添加图片
+				var img = document.createElement("img");
+				img.src = "../imgs/2.gif";
+				img.style.position = "absolute";
+				img.style.left = event.clientX+"px";
+				img.style.top = event.clientY+"px";
+				document.body.appendChild(img);
+				
+				console.log("鼠标按下");
+			}
+			
+			function movefn(){
+				console.log("鼠标移动");
+				
+				// 实现点击哪里,哪里就添加图片
+				var img = document.createElement("img");
+				img.src = "../imgs/2.gif";
+				img.style.position = "absolute";
+				img.style.left = event.clientX+"px";
+				img.style.top = event.clientY+"px";
+				document.body.appendChild(img);
+			}
+			
+			function upfn(){
+				console.log("鼠标抬起");
+			}
+		</script>
+	</head>
+	<body>
+		<div onmousedown="downfn()" onmousemove="movefn()" onmouseup="upfn()"></div>
+	</body>
+</html>

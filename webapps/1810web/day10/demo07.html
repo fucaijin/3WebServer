@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function fun(arg){
+			switch(arg){
+			case 1:
+				var myli = document.createElement("li");
+				myli.innerText = i1.value;
+				myul.appendChild(myli);
+				
+				break;
+			case 2:
+				var myli = document.createElement("li");
+				myli.innerText = i1.value;
+				myul.insertBefore(myli,sh);
+				break;
+			case 3:
+				myul.removeChild(sh);
+				break;
+			}
+		}
+	</script>
+	</head>
+	<body>
+		<input type="text" id="i1">
+		<input type="button" value="添加" onclick="fun(1)">
+		<input type="button" value="插入" onclick="fun(2)">
+		<input type="button" value="删除" onclick="fun(3)">
+		<ul id="myul">
+			<li>北京</li>
+			<li id="sh">上海</li>
+			<li>广州</li>
+		</ul>
+		
+	</body>
+</html>

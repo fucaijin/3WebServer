@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function downfn(){
+				console.log("键盘按下");
+				console.log("键盘"+ event.keyCode);
+				console.log("键盘字母:"+ String.fromCharCode(event.keyCode));
+				
+				// 拦截回车键
+				if(event.keyCode==13){
+					btn.onclick();
+				}
+			}
+			
+			function upfn(){
+				console.log("键盘抬起");
+			}
+			
+			onload = function(){
+				// 动态绑定 - 通过js代码绑定事件
+				mybtn.onclick = function(){
+					alert(this);
+					// this代表事件源-即类似于java的this,代表当前对象
+					// 把按钮自身删除
+					document.body.removeChild(this);
+				}
+			}
+			
+			function fn(){
+				// 非动态绑定中,this指代window(即当前方法所属对象(window被省略了))
+				// 如果想在非动态绑定中获取事件源,就得在调用时候通过参数传this进来,然后使用参数接收,即可使用
+				alert(this);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="abc" onclick="fn()">
+		<input id="btn" type="button" value="点我试试" onclick="alert('试试就试试')">
+		<input type="text" id="i1" onkeydown="downfn()" onkeyup="upfn()">
+		<input id="mybtn" type="button" value="我是按钮">
+	</body>
+</html>

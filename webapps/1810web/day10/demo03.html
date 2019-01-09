@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div,img{
+			width: 200px;
+			height: 200px;
+		}
+		
+		img{
+			display: none;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		// 准备自增变量x
+		var x = 0;
+		// 开启定时器
+		setInterval(function(){
+			// 得到要显示的图片的下标
+			var visiableIndex = x++%3;
+			// console.log(visiableIndex);
+			// 得到装着所有图片的数字
+			var arr = document.getElementsByTagName("img");
+			// 遍历每张图片
+			for(var i = 0; i < arr.length; i++){
+				// 判断如果i等于显示下标则显示   不等则隐藏0
+				arr[i].style.display=i==visiableIndex?"block":"none";
+			}
+		}, 1000);
+	</script>
+	</head>
+	<body>
+		<div>
+			<img id="i1" src="../imgs/1.jpg">
+			<img id="i2" src="../imgs/b.jpg">
+			<img id="i3" src="../imgs/d.jpg">
+		</div>	
+	</body>
+</html>

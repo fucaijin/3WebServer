@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<!-- calculator计算器
+			   宽度200
+			   边框粗细4px 颜色#ccc		
+			   按钮宽高45px
+			   间距4px		
+		 -->
+		 
+		 <style type="text/css">
+		 	.btn{
+		 		height:45px;
+		 		width:45px;
+		 		border: 4px solid #ccc;
+		 	}
+		 	
+		 	#show{
+		 		border: 4px solid #ccc;
+		 		height: 37px;
+				width: 135px;
+				overflow: hidden;
+				line-height: 37px;
+		 	}
+		 	
+		 	*{
+		 		border-radius:5px; 
+		 	}
+		 	
+		 	#out_div{
+		 		width:198px;
+		 		padding:2px;
+		 		border: 4px solid #ccc;
+		 	}
+		 </style>
+		 
+		 <script type="text/javascript">
+		 	function fun(arg){
+		 		if(arg == "="){
+		 			show.innerText = eval(show.innerText);
+		 		}else if(arg == "C"){
+		 			show.innerText = "";
+		 		}else{
+		 			show.innerText += arg;
+		 		}
+		 	}
+		 </script>
+	</head>
+	<body>
+		<div id="out_div">
+			<table>
+				<tr>
+					<td colspan="3"><div id="show"></div></td>
+					<td><input class="btn" type="button" value="C" onclick="fun('C');"></td>
+				</tr>
+				
+				<tr>
+					<td><input class="btn" type="button" value="7" onclick="fun('7');"></td>
+					<td><input class="btn" type="button" value="8" onclick="fun('8');"></td>
+					<td><input class="btn" type="button" value="9" onclick="fun('9');"></td>
+					<td><input class="btn" type="button" value="/" onclick="fun('/');"></td>
+				</tr>
+				
+				<tr>
+					<td><input class="btn" type="button" value="4" onclick="fun('4');"></td>
+					<td><input class="btn" type="button" value="5" onclick="fun('5');"></td>
+					<td><input class="btn" type="button" value="6" onclick="fun('6');"></td>
+					<td><input class="btn" type="button" value="*" onclick="fun('*');"></td>
+				</tr>
+				
+				<tr>
+					<td><input class="btn" type="button" value="1" onclick="fun('1');"></td>
+					<td><input class="btn" type="button" value="2" onclick="fun('2');"></td>
+					<td><input class="btn" type="button" value="3" onclick="fun('3');"></td>
+					<td><input class="btn" type="button" value="-" onclick="fun('-');"></td>
+				</tr>
+				
+				<tr>
+					<td><input class="btn" type="button" value="0" onclick="fun('0');"></td>
+					<td><input class="btn" type="button" value="." onclick="fun('.');"></td>
+					<td><input class="btn" type="button" value="=" onclick="fun('=');"></td>
+					<td><input class="btn" type="button" value="+" onclick="fun('+');"></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

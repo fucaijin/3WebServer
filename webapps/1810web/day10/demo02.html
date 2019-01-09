@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+		<script type="text/javascript">
+			window.onload = function(){
+				bg.style.width="50px";
+				bg.style.height="50px";
+			}
+			
+			var x = 0;
+			window.onclick = function(){
+				x+=5;
+				bg.style.marginLeft = x+"px";
+			}
+			
+			//开启定时器
+			setInterval(function(){
+				x+=1;
+				if(x>=1900){
+					x-=1;
+				}
+				bg.style.marginLeft=x+"px";
+			},5);
+		</script>
+	</head>
+	
+	<body>
+	<img id="bg" src="../imgs/1.jpg">
+	</body>
+</html>

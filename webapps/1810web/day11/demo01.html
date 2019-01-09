@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script type="text/javascript">
+			var arr = [["唐山", "秦皇岛", "石家庄"],
+			           ["大同", "太原", "运城"],
+			           ["青岛", "济南", "烟台"]];
+			
+			function changefn(){
+				// 清空原来的s2内的子标签
+				s2.innerHTML = "<option>请选择</option>";
+				
+				// 得到省份对应的城市
+				var cities = arr[s1.value];
+				// 遍历数组中的每一个城市名称,创建option
+				for(var i = 0; i < cities.length; i++){
+				// 把城市名称添加到option中
+					var opt = document.createElement("option");
+					opt.innerText = cities[i];
+				// 把option添加到s2里面
+					s2.appendChild(opt);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!-- select的onchange属性(选项改变事件) 当元素的value值发生改变时响应 -->
+		<select id="s1" onchange="changefn()">
+			<option>请选择</option>
+			<option value="0">河北</option>
+			<option value="1">山西</option>
+			<option value="2">山东</option>
+		</select>
+
+		<select id="s2">
+			<option>请选择</option>
+		</select>
+		
+	</body>
+</html>

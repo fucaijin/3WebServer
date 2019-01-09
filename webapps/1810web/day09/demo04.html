@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		/* 页面加载完成事件  如果需要页面加载完时做某件事,就把代码写在这里面
+		 * 如果一上来就访问某个元素,获取元素的代码一定要写在这里面
+		 */
+		onload = function(){
+			d1.innerText="abc";
+		}
+		
+		//窗口点击事件
+		onclick = function(){
+			//alert("啦啦啦");
+		}
+		
+		//窗口失去焦点
+		onblur = function(){
+			console.log("页面失去焦点");
+		}
+		
+		//窗口获取焦点
+		onfocus = function(){
+			console.log("页面获取焦点");
+		}
+		
+		</script>
+	</head>
+	<body>
+		<input type="button" value="按钮" onclick="">
+		<div id="d1"></div>
+	</body>
+</html>

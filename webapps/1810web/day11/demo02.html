@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			onload = function(){
+				var arr = document.getElementsByClassName("c1");
+				for(var i = 0; i < arr.length; i++){
+					arr[i].style.display="none";
+				}
+			}
+			
+			function myfn(li){
+				
+				// 得到li里面的ul
+				var ul = li.getElementsByTagName("ul")[0];
+				// 判断如果隐藏则显示 如果显示则隐藏
+				ul.style.display=ul.style.display=="none"?"block":"none";
+				
+				// 得到所有的ul,遍历,如果不等于上面的ul则隐藏
+				var arr = document.getElementsByClassName("c1");
+				for(var i = 0; i < arr.length; i++){
+					if(ul != arr[i]){
+						arr[i].style.display="none";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li onclick="myfn(this)">工作好友 <!-- this代表调用方法的元素对象  -->
+				<ul class="c1">
+					<li>马云</li>
+					<li>马化腾</li>
+					<li>马冬梅</li>
+				</ul>
+			</li>
+			
+			<li onclick="myfn(this)">亲朋好友
+				<ul class="c1">
+					<li>习大大</li>
+					<li>老干妈</li>
+					<li>凤姐</li>
+				</ul>
+			</li>
+			
+			<li onclick="myfn(this)">前女友们
+				<ul class="c1">
+					<li>貂蝉</li>
+					<li>西施</li>
+					<li>苍老师</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

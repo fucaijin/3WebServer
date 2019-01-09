@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			div{
+				margin:0 auto;
+				width:500px;
+				height:250px;
+				position:relative;
+				overflow: hidden;
+			}
+			
+			img{
+				width:500px;
+				height:250px;
+				position:absolute;
+			}
+		</style>
+		<script type="text/javascript">
+		// 轮播图实现步骤
+		// 1.通过css调整图片和div的大小
+		// 2.把图片改成绝对定位,位置相对于div
+		// 3.添加script标签,在页面加载完成时,获取所有图片并遍历设置每一个图片的left值分别为0*width 1*width 2*width
+		// 4.开启定时器一秒执行100次,每次执行时候要获取所有图片,遍历,得到图片之前的left值-4再赋值回去.在赋值回去之前判断如果新的left值<=-200,就把新的left值改为400,同时停掉定时器
+		// 5.把移动一张图片的代码抽取为一个方法,然后再开启定时器每隔两秒调用一次这个方法
+		// 6.给div添加鼠标移入和移出时间.在对应的事件回调方法中关闭或开启定时器.
+		var imgArr = undefined;
+		onload = function(){
+			imgArr = document.getElementsByTagName("img");
+			for(var i = 0; i < imgArr.length; i++){
+				imgArr[i].style.left = i*500+"px";
+			}
+		}
+		
+		function moveImg(){
+			var move = setInterval(function(){
+				for(var i = 0; i < imgArr.length; i++){
+					var oldLeft = parseInt(imgArr[i].style.left);
+					var newLeft = oldLeft-4;
+					if(newLeft<=-500){
+						newLeft = 1000;
+						clearInterval(move);
+					}
+					imgArr[i].style.left = newLeft+"px";
+				}
+			},10)
+		}
+		
+		var timer = setInterval(moveImg,2000);
+		
+		function inDiv(){
+			clearInterval(timer);
+		}
+		
+		function outDiv(){
+			timer = setInterval(moveImg,2000);
+		}
+		</script>
+	</head>
+	<body>
+		<div onmouseover="inDiv()" onmouseout="outDiv()">
+			<img id="i1" src="../imgs/1.jpg">
+			<img id="i2" src="../imgs/b.jpg">
+			<img id="i3" src="../imgs/d.jpg">
+		</div>	
+	</body>
+</html>

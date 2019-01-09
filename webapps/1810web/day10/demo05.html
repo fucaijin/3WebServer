@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			onload = function(){
+				var d = new Date();
+				time_h1.innerText = d.toLocaleTimeString();
+			}
+			
+			setInterval(function(){
+				var d = new Date();
+				time_h1.innerText = d.toLocaleTimeString();
+			},1000);
+			
+			var time2 = 0;
+			function count_down(){
+				var time2 = parseInt(i1.value);
+				var intv = setInterval(function(){
+					var hour = parseInt(time2/(60*60));
+					var minute = parseInt((time2%(60*60))/60);
+					var second = parseInt((time2%(60*60))%60);
+					time2--;
+					if(time2==0){
+						clearInterval(intv);	
+					}
+					time_h2.innerText = (hour=hour<10?"0"+hour:hour)+":"+(minute=minute<10?"0"+minute:minute)+":"+(second=second<10?"0"+second:second);
+				},1000);
+			}
+			
+			// 以下为老师做法 - - - - - - - - - - -
+			var time = 0;
+			function myfn(){
+				//禁止按钮点击
+				btn3.disabled = true;
+				//得到用户输入的时间
+				time=parseInt(i1.value);
+				//显示
+				time_h3.innerText = getTimeString(time);
+				//开启定时器
+				var t = setInterval(function(){
+					time--;
+					time_h3.innerText = getTimeString(time);
+					//时间到就停止定时器
+					if(time==0){
+						clearInterval(t);
+						alert("时间到");
+						btn3.disabled = false;
+					}
+				},1000);
+			}
+			
+			function getTimeString(time){
+				// 得到小时
+				var h = parseInt(time2/(60*60));
+				// 得到分
+				var x = time%((60*60));
+				var m = parseInt(x/60)
+				// 得到秒
+				var s = x%60;
+				
+				// 不足两位就补0
+				h = h<10?"0"+h:h;
+				m = m<10?"0"+m:m;
+				s = s<10?"0"+s:s;
+				return h+":"+m+":"+s;
+			}
+			
+		</script>
+	</head>
+	<body>
+		<input type="text" id="i1">
+		<input type="button" value="倒计时" id="btn2" onclick="count_down()"><!-- 我的按钮 -->
+		<input type="button" value="倒计时" id="btn3" onclick="myfn()"><!-- 老师的按钮 -->
+		<h1 id="time_h1"></h1>
+		<h1 id="time_h2"></h1><!-- 我的时间 -->
+		<h1 id="time_h3"></h1><!-- 老师的时间 -->
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("input[value]").click(function(){
+					var nametd = $("<td></td>");
+					var agetd = $("<td></td>");
+					var salarytd = $("<td></td>");
+					var deltd = $("<td><input type='button' value='删除'></td>");
+					// 给每个删除按钮添加点击事件
+					deltd.children().click(function(){
+						$(this).parent().parent().remove();// 通过按钮找td,再通过此td找tr,然后删除.(删除当前按钮的父控件的父控件,即可删除一整行)
+					});
+					// 给td赋值
+					nametd.text($("input:eq(0)").val());//获取第一个input的值赋值给nametd
+					agetd.text($("input:eq(1)").val());
+					salarytd.text($("input:eq(2)").val());
+					
+					// 创建一个tr把4个td装进去
+					var tr = $("<tr></tr>");
+					tr.append(nametd);
+					tr.append(agetd);
+					tr.append(salarytd);
+					tr.append(deltd);
+					
+					// 把tr装进table
+					$("table").append(tr);
+				});
+				
+				
+			})
+		</script>
+	</head>
+	<body>
+		<input type="text" placeholder="姓名">
+		<input type="text" placeholder="年龄">
+		<input type="text" placeholder="工资">
+		<input type="button" value="添加">
+		
+		<table>
+			<caption>员工表</caption>
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>工资</th>
+				<th>操作</th>
+			</tr>
+		</table>
+	</body>
+</html>

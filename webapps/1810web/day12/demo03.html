@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#b1").click(function(){
+					// 得到js对象
+					var input = document.getElementById("i1");
+					// 把js转成jq对象
+					var jq=$(input);
+					// 验证是否成功
+					alert(jq.val()+":"+input.value);
+				})
+				
+				$("#b2").click(function(){
+					// 得到jq对象
+					var jq = $("#i1");// 只要是jq选择器，返回的就是数组
+					// 把jq对象转成js对象
+					var js = jq[0];
+					alert(jq.val()+":"+js.value);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input type="text" id="i1">
+		<input type="button" value="js转jq" id="b1">
+		<input type="button" value="jq转js" id="b2">
+	</body>
+</html>

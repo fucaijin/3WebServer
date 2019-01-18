@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			// js页面加载完成
+			/* onload = function(){} */
+			
+			// jq页面加载完成写法
+			$(function(){
+				alert("引入成功!");
+				
+				// js动态绑定事件
+				/* var btn = document.getElementById("btn");
+				btn.onclick = function(){} */
+				
+				//js动态绑定事件
+				$("#btn").click(function(){
+					alert("哈哈");
+					$("#d1").css("color","red");
+				})
+			})
+			
+		</script>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn">
+		<div id="d1">谁吃火腿肠呢?</div>
+	</body>
+</html>

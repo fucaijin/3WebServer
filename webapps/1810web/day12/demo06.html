@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("div").css("color","red");
+				$("div").css({"width":"100px","height":"100px","background-color":"green"});
+				setInterval(function(){
+					/* $("div").text("呵呵"); */
+					$("div").html("<h1>hehe</h1>");
+				},3000);
+			})
+		</script>
+	</head>
+	<body>
+		<div>abc</div>
+	</body>
+</html>

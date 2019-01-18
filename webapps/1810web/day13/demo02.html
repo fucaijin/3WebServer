@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 给全选框添加点击事件
+				$("input:last").click(function(){
+					// alert(this.checked);
+					// 得到全选复选框当前的选择状态
+					var state = $(this).attr("checked");
+					// 把全选的状态设置给其他的复选框
+					$(this).siblings("input").attr("checked",state);
+				})
+				
+				// 计算总金额
+				$("input").click(function(){
+					// 统计总金额的变量
+					var total = 0;
+					// 遍历所有带着value属性的input,如果是选中则加进统计中
+					$("input[value]").each(function(){
+						if(this.checked){
+							total += parseInt(this.value);
+						}
+					})
+					$("p").text("总计：" + total + "元");
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<h3>购物车</h3>
+		<input type="checkbox" value="25">鼠标25元<br>
+		<input type="checkbox" value="998">苹果手机998<br>
+		<input type="checkbox" value="80">宝马7系80元<br>
+		<input type="checkbox">全选<br>
+		<p>总计：0元</p>
+	</body>
+</html>

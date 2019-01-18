@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			table{
+				border: 1px solid red;
+				border-collapse: collapse;
+				margin: 0 auto;
+				width:60%;
+				text-align:center;
+			}
+			
+			h3{
+				text-align:center;
+			}
+			
+			th,td{
+				border: 1px solid red;
+			}
+		</style>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("input").click(function(){
+					// 得到当前按钮所在的th(parent)然后获取所有的兄弟控件，并取出第一个(即商品名称)
+					var name = $(this).parent().siblings().eq(0).text();
+					var price = $(this).parent().siblings().eq(1).text();
+					
+					// 创建td
+					var nametd = $("<td></td>");
+					var pricetd = $("<td></td>");
+					var numtd = $("<td><input type='button' value='-'><span>1</span><input type='button' value='+'></td>");
+					var moneytd = $("<td></td>");
+					var deltd = $("<td><input type='button' value='删除'></td>");
+					
+					// 设置显示内容
+					nametd.text(name);
+					pricetd.text(price);
+					moneytd.text(price);
+					
+					// 创建tr
+					var tr = $("<tr></tr>");
+					tr.append(nametd);
+					tr.append(pricetd);
+					tr.append(numtd);
+					tr.append(moneytd);
+					tr.append(deltd);
+					
+					$("#total").parent().before(tr);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<h3>特价商品</h3>
+		<table>
+			<tr>
+				<th>商品名称</th><th>单价(元)</th>
+				<th>库存</th><th>好评率</th>
+				<th>操作</th>
+			</tr>
+			
+			<tr>
+				<td>脉动</td><td>4</td>
+				<th>2000</td><td>98%</td>
+				<th><input type="button" value="加入购物车"></th>
+			</tr>
+			<tr>
+				<td>鼠标</td><td>80</td>
+				<th>100</td><td>95%</td>
+				<th><input type="button" value="加入购物车"></th>
+			</tr>
+			<tr>
+				<td>苍老师手办</td><td>688</td>
+				<th>1000</td><td>99%</td>
+				<th><input type="button" value="加入购物车"></th>
+			</tr>
+			
+		</table>
+		<h3>购物车</h3>
+		<table>
+			<tr>
+				<th>商品名称</th><th>单价(元)</th>
+				<th>操作</th><th>金额</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td colspan="4" align="right">总价:</td>
+				<td id="total">0元</td>
+			</tr>
+		</table>
+		
+		
+	</body>
+</html>

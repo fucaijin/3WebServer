@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			body>div{
+				width:200px;
+				border:4px solid #ccc;
+				border-radius: 4px;
+				margin:0 auto;
+				overflow: hidden;
+				padding-bottom: 4px;
+			}
+			
+			body>div>div{
+				border: 4px solid #ccc;
+				border-radius: 4px;
+				float: left;
+				height: 37px;
+				width: 135px;
+				margin:4px 0 0 4px;
+				overflow: hidden;
+				line-height: 37px;
+			}
+			
+			
+			input{
+				width: 45px;
+				height: 45px;
+				border: 4px solid #ccc;
+				border-radius: 4px;
+				float: left;
+				margin: 4px 0 0 4px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			/* 改进版的计算器,使用事件冒泡机制和通过事件源捕获按的是哪个按钮  */
+			
+			onload = function(){
+				
+				outer.onclick = function(){
+					var obj = event.srcElement || event.target;
+					var value = obj.value; 
+					// 判断当前点击的对象的value是什么(即判断按的是哪个按钮)
+					if(value == "C"){
+						d1.innerText = "";
+					}else if(value == "="){
+						d1.innerText = eval(d1.innerText);
+					}else{//其他数值
+						d1.innerText += value;
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="d1"></div> <!-- 输入显示器  -->
+			<input type="button" value="C">
+			<input type="button" value="7">
+			<input type="button" value="8">
+			<input type="button" value="9">
+			<input type="button" value="/">
+			<input type="button" value="4">
+			<input type="button" value="5">
+			<input type="button" value="6">
+			<input type="button" value="*">
+			<input type="button" value="1">
+			<input type="button" value="2">
+			<input type="button" value="3">
+			<input type="button" value="-">
+			<input type="button" value="0">
+			<input type="button" value=".">
+			<input type="button" value="=">
+			<input type="button" value="+">
+		</div>
+	</body>
+</html>

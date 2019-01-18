@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("input[type='button']").click(function(){
+				if(this.value=="添加"){
+					var li = $("<li></li>");
+					li.text($("input:first").val());// 将第一个input(输入框)的内容设置给li这个对象
+					// 添加到ul里面
+					$("ul").append(li);
+				}else if(this.value=="插入"){
+					var li = $("<li></li>");
+					li.text($("input:first").val());// 将第一个input(输入框)的内容设置给li这个对象
+					$("li:contains('上海')").before(li);
+				}else{// 删除
+					// 删除上海
+					$("li:contains('上海')").remove();
+				}
+			})
+			
+		})
+	</script>
+	</head>
+	<body>
+		<input type="text">
+		<input type="button" value="添加">
+		<input type="button" value="插入">
+		<input type="button" value="删除">
+		<ul>
+			<li>北京</li>
+			<li>上海</li>
+			<li>广州</li>
+		</ul>
+		
+	</body>
+</html>

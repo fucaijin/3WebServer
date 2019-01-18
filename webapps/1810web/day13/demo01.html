@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			var arr = [["唐山", "秦皇岛", "石家庄"],
+			           ["大同", "太原", "运城"],
+			           ["青岛", "济南", "烟台"]];
+			$(function(){
+				$("select:first").change(function(){
+					$("select:last").html("<option>请选择</option>");// 清空
+					var citys = arr[$("select:first").val()];
+					for(var i=0; i < citys.length; i++){
+						var opt = $("<option></option>");
+						opt.text(citys[i]);
+						$("select:last").append(opt);
+					}
+				})
+			})
+			
+		</script>
+	</head>
+	<body>
+	<!-- select的onchange属性(选项改变事件) 当元素的value值发生改变时响应 -->
+		<select>
+			<option>请选择</option>
+			<option value="0">河北</option>
+			<option value="1">山西</option>
+			<option value="2">山东</option>
+		</select>
+		<select>
+			<option>请选择</option>
+		</select>
+	</body>
+</html>

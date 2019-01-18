@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 全部隐藏
+				$("ul>li>ul").hide();
+				
+				// 给第一层li添加点击事件
+				$("body>ul>li").click(function(){
+					// this为js对象
+					$(this).children().toggle();
+					$(this).siblings().children().hide();
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li onclick="myfn(this)">工作好友 <!-- this代表调用方法的元素对象  -->
+				<ul class="c1">
+					<li>马云</li>
+					<li>马化腾</li>
+					<li>马冬梅</li>
+				</ul>
+			</li>
+			
+			<li onclick="myfn(this)">亲朋好友
+				<ul class="c1">
+					<li>习大大</li>
+					<li>老干妈</li>
+					<li>凤姐</li>
+				</ul>
+			</li>
+			
+			<li onclick="myfn(this)">前女友们
+				<ul class="c1">
+					<li>貂蝉</li>
+					<li>西施</li>
+					<li>苍老师</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

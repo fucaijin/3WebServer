@@ -5,10 +5,27 @@
 		<title>Insert title here</title>
 		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript">
-			
+			$(function(){
+				$("input").click(function(){
+					alert("试试就试试");
+				})
+				
+				// 模拟按钮的点击事件
+				setTimeout(function(){
+					$("input").trigger("click");
+				},3000);
+				
+				//鼠标移入和移出事件的合并
+				$("span").hover(function(){
+					$("span").css("color","red");
+				},function(){
+					$("span").css("color","blue");
+				});
+			})
 		</script>
 	</head>
 	<body>
-	
+		<input type="button" value="点我试试">
+		<span>这是一个span</span>
 	</body>
 </html>

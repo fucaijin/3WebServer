@@ -31,9 +31,16 @@
 					// 创建td
 					var nametd = $("<td></td>");
 					var pricetd = $("<td></td>");
-					var numtd = $("<td><input type='button' value='-'><span>1</span><input type='button' value='+'></td>");
+					var numtd = $("<td><input type='button' value='-' onclick='numfn(-1)'><span>1</span><input type='button' value='+' onclick='numfn(1)'></td>");
 					var moneytd = $("<td></td>");
 					var deltd = $("<td><input type='button' value='删除'></td>");
+					
+					// 删除按钮点击事件
+					deltd.children().click(function(){
+						$(this).parent().parent().remove();
+						// 调用计算总金额方法
+						calfn();
+					})				
 					
 					// 设置显示内容
 					nametd.text(name);
@@ -49,8 +56,49 @@
 					tr.append(deltd);
 					
 					$("#total").parent().before(tr);
+					// 调用计算总金额方法
+					calfn();
 				})
 			})
+			
+			// 声明商品加减方法
+			function numfn(x){
+				// 得到事件源,通过事件源得到span兄弟
+				var obj = event.target || event.srcElement;
+				var sp = $(obj).siblings("span");
+				// 然后取出内部文本就是当前的数量
+				var num = sp.text();
+				// 把当前数量和x进行加法运算
+				num = parseInt(num)+x;
+				if(num<1){
+					num=1;
+				}
+				// 得到的新值再赋值给span
+				sp.text(num);
+				
+				// 修改单个商品的金额
+				var price = $(obj).parent().siblings().eq(1).text();
+				$(obj).parent().siblings().eq(2).text(price*num);
+				
+				// 调用计算总金额方法
+				calfn();
+			}
+			
+			// 声明计算总金额方法
+			function calfn(){
+				var total = 0;
+				// 得到最后一个表格的每一行,然后遍历
+				$("table:last tr").each(function(){
+					// 获取每一行的第三列
+					var money = parseFloat($(this).children().eq(3).text());
+					
+					// 过滤掉第一行第三列和最后一行的非数字.只计算添加的商品的金额
+					if(!isNaN(money)){
+						total+=money;
+					}
+				})
+				$("#total").text(total+"元");
+			}
 		</script>
 	</head>
 	<body>

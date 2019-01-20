@@ -3,9 +3,40 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<style type="text/css">
+			body{
+				margin:0;
+				background-color: rgba(0,0,20,250);
+			}
+		</style>
 		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript">
-			
+			setInterval(function(){
+				// 得到屏幕宽高
+				var w = document.body.clientWidth;
+				var h = document.body.parentElement.clientHeight;
+				
+				// 创建雪花图片
+				var img = $("<img src='snow.png'>");
+				
+				// 生成随机的雪花宽高的值(20-40)
+				var size = parseInt(Math.random()*21)+20;
+				// 生成随机的雪花位置值(0-(屏幕宽度-雪花宽度))
+				var left = parseInt(Math.random()*(w-size));
+				img.css({"width":size+"px","height":size+"px","position":"absolute","left":left+"px","top":-size});
+				
+				$("body").append(img);
+				
+				// 生成随机的下落时间3000-8000毫秒
+				var time = parseInt(Math.random()*(5001))+3000;
+				
+				img.animate({"top":h-size},time,function(){
+					// 掉下结束后,3秒消失,消失后删除图片
+					$(this).hide(3000,function(){
+						$(this).remove();
+					});
+				});
+			},10);
 		</script>
 	</head>
 	<body>

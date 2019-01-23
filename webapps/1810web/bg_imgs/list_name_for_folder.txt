@@ -1,0 +1,38 @@
+get_all_file_name.bat
+list_name_for_folder.txt
+timg (1).jpg
+timg (10).jpg
+timg (11).jpg
+timg (12).jpg
+timg (13).jpg
+timg (14).jpg
+timg (15).jpg
+timg (16).jpg
+timg (17).jpg
+timg (18).jpg
+timg (19).jpg
+timg (2).jpg
+timg (20).jpg
+timg (21).jpg
+timg (22).jpg
+timg (23).jpg
+timg (24).jpg
+timg (25).jpg
+timg (26).jpg
+timg (27).jpg
+timg (28).jpg
+timg (29).jpg
+timg (3).jpg
+timg (30).jpg
+timg (31).jpg
+timg (32).jpg
+timg (33).jpg
+timg (34).jpg
+timg (35).jpg
+timg (4).jpg
+timg (5).jpg
+timg (6).jpg
+timg (7).jpg
+timg (8).jpg
+timg (9).jpg
+timg.jpg
